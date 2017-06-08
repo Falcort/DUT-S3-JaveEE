@@ -1,0 +1,19 @@
+body
+{
+    background-color: #fcfcfc;
+}
+
+#inscription
+{
+  margin-top: 20px;
+}
+
+#inscription .card-panel
+{
+    margin: auto;
+}
+
+.input-field .prefix
+{
+    margin-top: 6px !important;
+}
