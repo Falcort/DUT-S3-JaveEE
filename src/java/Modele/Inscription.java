@@ -23,8 +23,8 @@ import javax.sql.DataSource;
  *
  * @author Thibault
  */
-public class Inscription
-{
+public class Inscription {
+
     private static final String pseudo = "pseudo";
     private static final String nom = "nom";
     private static final String prenom = "prenom";
@@ -33,9 +33,8 @@ public class Inscription
     private static final String password = "password";
     private static final String passwordRe = "passwordRe";
     private static final String telephone = "telephone";
-    
-    public Compte inscriptionClient (HttpServletRequest request) throws Exception 
-    {
+
+    public Compte inscriptionClient(HttpServletRequest request) throws Exception {
         System.out.println("DEBUT SCRIPT");
         String pseudo = getValeurChamp(request, "pseudo");
         String nom = getValeurChamp(request, "nom");
@@ -45,50 +44,41 @@ public class Inscription
         String password = getValeurChamp(request, "password");
         String passwordRe = getValeurChamp(request, "passwordRe");
         String telephone = getValeurChamp(request, "telephone");
-        
+
         Compte compte = new Compte();
-        
-        if(email.equals(emailRe))
-        {
+
+        if (email.equals(emailRe)) {
             compte.setEmail(email);
-        }
-        else
-        {
+        } else {
             throw new Exception("Email non identique");
         }
-        
-        if(password.equals(passwordRe))
-        {
+
+        if (password.equals(passwordRe)) {
             compte.setMotDePasse(password);
-        }
-        else
-        {
+        } else {
             throw new Exception("Mot de passe non identique");
         }
-        
+
         compte.setNom(nom);
         compte.setPrenom(prenom);
         compte.setPseudo(pseudo);
         compte.setTelephone(telephone);
-        
+
         Boolean user = verifAlreadyUse(compte);
-        if(!user)
-        {
-             DataSource bdd = BDD.getDataSource();
+        if (!user) {
+            DataSource bdd = BDD.getDataSource();
             Connection connection = bdd.getConnection();
-            
-            String query = "INSERT INTO Utilisateurs(nom, prenom, pseudo, tel, email, type, mdp) VALUES ('"+compte.getNom()+"','"+compte.getPrenom()+"','"+compte.getPseudo()+"','"+compte.getTelephone()+"','"+compte.getEmail()+"',0,'"+compte.getMotDePasse()+"')";
+
+            String query = "INSERT INTO Utilisateurs(nom, prenom, pseudo, tel, email, type, mdp) VALUES ('" + compte.getNom() + "','" + compte.getPrenom() + "','" + compte.getPseudo() + "','" + compte.getTelephone() + "','" + compte.getEmail() + "',0,'" + compte.getMotDePasse() + "')";
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.executeUpdate();
             pstmt.close();
             return compte;
-        }
-        else
-        {
-           throw new Exception("Email ou mot de passe deja utiliser"); 
+        } else {
+            throw new Exception("Email ou mot de passe deja utiliser");
         }
     }
-    
+
     private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
         String valeur = request.getParameter(nomChamp);
         if (valeur == null || valeur.trim().length() == 0) {
@@ -97,7 +87,7 @@ public class Inscription
             return valeur.trim();
         }
     }
-    
+
     private void validationEmail(String email) throws Exception {
         if (email != null) {
             if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
@@ -107,17 +97,15 @@ public class Inscription
             throw new Exception("Merci de saisir une adresse mail.");
         }
     }
-    
-    private Boolean verifAlreadyUse(Compte compte) throws Exception
-    {
+
+    private Boolean verifAlreadyUse(Compte compte) throws Exception {
         DataSource bdd = BDD.getDataSource();
         Connection connection = bdd.getConnection();
-        
-        String query = "SELECT * FROM Utilisateurs WHERE email='" + compte.getEmail() + "' AND pseudo='" + compte.getPseudo()+"'";
+
+        String query = "SELECT * FROM Utilisateurs WHERE email='" + compte.getEmail() + "' AND pseudo='" + compte.getPseudo() + "'";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
-        while (rset.next())
-        {
+        while (rset.next()) {
             return true;
         }
         return false;

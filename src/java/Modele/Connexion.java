@@ -23,34 +23,31 @@ import javax.sql.DataSource;
  *
  * @author Thibault
  */
-public class Connexion
-{
+public class Connexion {
+
     private static final String email = "email";
     private static final String password = "password";
 
-    
-    public Compte connexionClient (HttpServletRequest request) throws Exception 
-    {
+    public Compte connexionClient(HttpServletRequest request) throws Exception {
         String email = getValeurChamp(request, "email");
         String password = getValeurChamp(request, "password");
-        
+
         DataSource bdd = BDD.getDataSource();
         Connection connection = bdd.getConnection();
 
         Compte compte = new Compte();
-        
-        String query = "SELECT * FROM Utilisateurs WHERE email='" + email + "' AND mdp='"+password+"'";
+
+        String query = "SELECT * FROM Utilisateurs WHERE email='" + email + "' AND mdp='" + password + "'";
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
-        while (rset.next())
-        {
+        while (rset.next()) {
             System.out.println("ok");
             return compte;
         }
         System.out.println("pas ok");
         return compte;
     }
-    
+
     private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
         String valeur = request.getParameter(nomChamp);
         if (valeur == null || valeur.trim().length() == 0) {

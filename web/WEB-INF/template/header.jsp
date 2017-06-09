@@ -19,7 +19,7 @@
                     <img src="images/logo.gif" style="max-height: 60px;" />
                 </a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                
+
                 <ul class="left hide-on-med-and-down">
                     <li><a href="Chiens">Chiens</a></li>
                     <li><a href="Chats">Chats</a></li>
@@ -53,8 +53,8 @@
             </div>
         </nav>
         <script>
-        $( document ).ready(function(){
-            $(".button-collapse").sideNav();
-            $(".dropdown-button").dropdown();
-        })
+            $(document).ready(function () {
+                $(".button-collapse").sideNav();
+                $(".dropdown-button").dropdown();
+            });
         </script>

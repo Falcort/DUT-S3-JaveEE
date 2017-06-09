@@ -36,7 +36,7 @@ public class inscription extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet inscription</title>");            
+            out.println("<title>Servlet inscription</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet inscription at " + request.getContextPath() + "</h1>");

@@ -11,8 +11,8 @@ import java.io.Serializable;
  *
  * @author Thibault
  */
-public class Compte implements Serializable
-{
+public class Compte implements Serializable {
+
     private int id;
     private String pseudo;
     private String nom;
