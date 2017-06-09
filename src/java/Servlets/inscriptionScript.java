@@ -6,8 +6,11 @@
 package Servlets;
 
 import Class.Compte;
+import Modele.Inscription;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,7 +60,7 @@ public class inscriptionScript extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/inscriptionScript.jsp").forward(request, response);
+
     }
 
     /**
@@ -71,8 +74,15 @@ public class inscriptionScript extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Compte compte;
-        processRequest(request, response);
+        Inscription form = new Inscription();
+        Compte client;
+        try {
+            client = form.inscriptionClient(request);
+        } catch (Exception ex) {
+            Logger.getLogger(inscriptionScript.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp");
 
     }
 

@@ -10,23 +10,18 @@ import java.util.Properties;
 import javax.sql.DataSource;
 import org.mariadb.jdbc.MariaDbDataSource;
 
-/**
- *
- * @author Alain
- */
+
 public class BDD {
     
     public static DataSource getDataSource() throws Exception
     {
-        Properties props = new Properties();
-        FileInputStream fichier = new FileInputStream("src/Modele/connexion.properties");
-        props.load(fichier);
         MariaDbDataSource ds = new MariaDbDataSource();
-        ds.setPortNumber(Integer.parseInt(props.getProperty("port")));
-        ds.setDatabaseName(props.getProperty("service"));
-        ds.setServerName(props.getProperty("serveur"));
-        ds.setUser(props.getProperty("user"));
-        ds.setPassword(props.getProperty("pwd"));
+        ds.setPortNumber(Integer.parseInt("3306"));
+        ds.setDatabaseName("JavaEE");
+        ds.setServerName("falcort.fr");
+        ds.setUserName("java");
+        ds.setUser("java");
+        ds.setPassword("TKA7tEMFDoCqVakU");
         return ds;
     }
 }
