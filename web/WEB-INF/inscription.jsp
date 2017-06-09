@@ -108,7 +108,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
                     <input id="password" type="password" name="passwordRe" class="validate">
-                    <label for="passwordRe">Confirmer Mot de passe</label>
+                    <label for="passwordRe">Confirmez mot de passe</label>
                 </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="action">Inscription

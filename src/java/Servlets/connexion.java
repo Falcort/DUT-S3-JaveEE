@@ -56,7 +56,7 @@ public class connexion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
     }
 
     /**

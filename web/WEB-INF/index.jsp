@@ -33,7 +33,7 @@
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="Panier">Panier</a></li>
-                    <li><a href="Connexion">Connexion</a></li>
+                    <li><a href="connexion">Connexion</a></li>
                     <li><a href="inscription">Inscription</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
@@ -43,7 +43,7 @@
                     <li><a href="Poissons">Poissons</a></li>
                     <li><a href="Divers">Divers</a></li>
                     <li><a href="Panier">Panier</a></li>
-                    <li><a href="Connexion">Connexion</a></li>
+                    <li><a href="connexion">Connexion</a></li>
                     <li><a href="inscription">Inscription</a></li>
                 </ul>
             </div>
