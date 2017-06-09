@@ -29,28 +29,26 @@ public class Connexion
     private static final String password = "password";
 
     
-    public connexion connexionClient (HttpServletRequest request) throws Exception 
+    public Compte connexionClient (HttpServletRequest request) throws Exception 
     {
-        System.out.println("DEBUT SCRIPT");
         String email = getValeurChamp(request, "email");
         String password = getValeurChamp(request, "password");
         
-        Boolean user = verifAlreadyUse(conexion);
-        if(!user)
+        DataSource bdd = BDD.getDataSource();
+        Connection connection = bdd.getConnection();
+
+        Compte compte = new Compte();
+        
+        String query = "SELECT * FROM Utilisateurs WHERE email='" + email + "' AND mdp='"+password+"'";
+        Statement stmt = connection.createStatement();
+        ResultSet rset = stmt.executeQuery(query);
+        while (rset.next())
         {
-             DataSource bdd = BDD.getDataSource();
-            Connection connection = bdd.getConnection();
-            
-            String query = "INSERT INTO Utilisateurs(nom, prenom, pseudo, tel, email, type, mdp) VALUES ('"+compte.getNom()+"','"+compte.getPrenom()+"','"+compte.getPseudo()+"','"+compte.getTelephone()+"','"+compte.getEmail()+"',0,'"+compte.getMotDePasse()+"')";
-            PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.executeUpdate();
-            pstmt.close();
+            System.out.println("ok");
             return compte;
         }
-        else
-        {
-           throw new Exception("Email ou mot de passe deja utiliser"); 
-        }
+        System.out.println("pas ok");
+        return compte;
     }
     
     private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
@@ -60,30 +58,5 @@ public class Connexion
         } else {
             return valeur.trim();
         }
-    }
-    
-    private void validationEmail(String email) throws Exception {
-        if (email != null) {
-            if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
-                throw new Exception("Merci de saisir une adresse mail valide.");
-            }
-        } else {
-            throw new Exception("Merci de saisir une adresse mail.");
-        }
-    }
-    
-    private Boolean verifAlreadyUse(Compte compte) throws Exception
-    {
-        DataSource bdd = BDD.getDataSource();
-        Connection connection = bdd.getConnection();
-        
-        String query = "SELECT * FROM Utilisateurs WHERE email='" + compte.getEmail() + "' AND pseudo='" + compte.getPseudo()+"'";
-        Statement stmt = connection.createStatement();
-        ResultSet rset = stmt.executeQuery(query);
-        while (rset.next())
-        {
-            return true;
-        }
-        return false;
     }
 }

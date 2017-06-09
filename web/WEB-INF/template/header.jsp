@@ -19,6 +19,7 @@
                     <img src="images/logo.gif" style="max-height: 60px;" />
                 </a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                
                 <ul class="left hide-on-med-and-down">
                     <li><a href="Chiens">Chiens</a></li>
                     <li><a href="Chats">Chats</a></li>
@@ -27,9 +28,17 @@
                     <li><a href="Divers">Divers</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="Panier">Panier</a></li>
-                    <li><a href="connexion">Connexion</a></li>
-                    <li><a href="inscription">Inscription</a></li>
+                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
+                    <li>
+                        <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                            <i class="material-icons left">person_pin</i>   Compte
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="dropdown1" class="dropdown-content z-depth-2" style="margin-top: 64px;">
+                    <li><a href="connexion"><i class="material-icons left">lock_open</i>  Connexion</a></li>
+                    <li><a href="inscription"><i class="material-icons left">perm_identity</i>   Inscription</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="Chiens">Chiens</a></li>
@@ -46,5 +55,6 @@
         <script>
         $( document ).ready(function(){
             $(".button-collapse").sideNav();
+            $(".dropdown-button").dropdown();
         })
         </script>

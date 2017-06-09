@@ -3,12 +3,12 @@ body
     background-color: #fcfcfc;
 }
 
-#inscription
+#inscription, #connexion, #home
 {
   margin-top: 20px;
 }
 
-#inscription .card-panel
+#inscription .card-panel, #connexion .card-panel
 {
     margin: auto;
 }
@@ -16,14 +16,4 @@ body
 .input-field .prefix
 {
     margin-top: 6px !important;
-}
-
-#connexion
-{
-  margin-top: 20px;
-}
-
-#connexion .card-panel
-{
-    margin: auto;
 }
