@@ -53,7 +53,6 @@
             <div class="col s6 center">
                 <h1>Connexion</h1>
             <form action="./connexionScript" method="GET">
-            </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
@@ -72,6 +71,7 @@
     <i class="material-icons right">send</i>
   </button>
         </form>
+        </div>
         </div>
         </section>
     </body>
