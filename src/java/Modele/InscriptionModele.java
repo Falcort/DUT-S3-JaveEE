@@ -57,7 +57,6 @@ public class InscriptionModele
         try {
             validationEmail(email);
         } catch (Exception e) {
-            System.out.println("Erreuer email");
             setErreur("email", e.getMessage());
         }
         client.setEmail(email);
@@ -65,7 +64,6 @@ public class InscriptionModele
         try {
             validationPseudo(pseudo);
         } catch (Exception e) {
-            System.out.println("Erreuer pseudo");
             setErreur("pseudo", e.getMessage());
         }
         client.setPseudo(pseudo);
@@ -73,7 +71,6 @@ public class InscriptionModele
         try {
             validationPrenom(prenom);
         } catch (Exception e) {
-            System.out.println("Erreuer prenom");
             setErreur("prenom", e.getMessage());
         }
         client.setPrenom(prenom);
@@ -81,7 +78,6 @@ public class InscriptionModele
         try {
             validationTelephone(telephone);
         } catch (Exception e) {
-            System.out.println("Erreuer telephone");
             setErreur("telephone", e.getMessage());
         }
         client.setTelephone(telephone);
@@ -89,7 +85,6 @@ public class InscriptionModele
         try {
             validationMotsDePasse(password, passwordRe);
         } catch (Exception e) {
-            System.out.println("Erreuer password");
             setErreur("password", e.getMessage());
             setErreur("passwordRe", null);
         }
@@ -98,7 +93,6 @@ public class InscriptionModele
         try {
             validationNom(nom);
         } catch (Exception e) {
-            System.out.println("Erreuer nom");
             setErreur("nom", e.getMessage());
         }
         client.setNom(nom);
@@ -131,7 +125,7 @@ public class InscriptionModele
             }
 
         } else {
-            resultat = "Inscription raté !";
+            resultat = "Inscription ratée !";
         }
 
         return client;
@@ -193,7 +187,7 @@ public class InscriptionModele
 
     private void validationNom(String nom) throws Exception {
         if (nom == null || nom.length() == 0) {
-            throw new Exception("Le nom d'utilisateur doit être non vide.");
+            throw new Exception("Le champ nom doit être non vide.");
         }
     }
 
@@ -203,19 +197,19 @@ public class InscriptionModele
 
     private void validationPseudo(String pseudo) throws Exception {
         if (pseudo == null || pseudo.length() < 3) {
-            throw new Exception("Le login doit être d'au moins 3 caractères.");
+            throw new Exception("Le pseudo doit contenir au moins 3 caractères.");
         }
     }
 
     private void validationPrenom(String prenom) throws Exception {
         if (prenom == null || prenom.length() == 0) {
-            throw new Exception("Le prénom doit être non vide.");
+            throw new Exception("Le champ prénom doit être non vide.");
         }
     }
 
     private void validationTelephone(String telephone) throws Exception {
         if (telephone == null || telephone.length() == 0) {
-            throw new Exception("Le numéro de téléphone doit être non vide.");
+            throw new Exception("Le champ téléphone doit être non vide.");
         }
     }    
 }

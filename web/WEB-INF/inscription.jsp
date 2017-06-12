@@ -2,6 +2,7 @@
 <section id="inscription">
     <div class="container card-panel" style="padding: 15px;">
         <div class="col s6 center">
+            <h1> ${result} </h1>
             <h1>Inscription</h1>
             <form action="./InscriptionController" method="POST">
                 <div class="row">
@@ -9,7 +10,7 @@
                         <i class="material-icons prefix">account_circle</i>
                         <input id="prenom" type="text" name="prenom" class="validate">
                         <label for="prenom">Prenom</label>
-                        <span class="erreur">${form.erreurs['prenom']}</span>
+                        <span class="erreur" >${form.erreurs['prenom']}</span>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
@@ -52,7 +53,7 @@
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
                         <input id="password" type="password" name="passwordRe" class="validate">
-                        <label for="passwordRe">Confirmez mot de passe</label>
+                        <label for="passwordRe">Confirmer mot de passe</label>
                         <span class="erreur">${form.erreurs['passwordRe']}</span>
                     </div>
                 </div>
@@ -60,7 +61,6 @@
                     <i class="material-icons right">send</i>
                 </button>
             </form>
-            <h1> ${result} </h1>
         </div>
     </div>
 </section>
