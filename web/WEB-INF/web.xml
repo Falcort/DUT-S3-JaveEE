@@ -6,20 +6,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>inscription</servlet-name>
-        <servlet-class>Servlets.inscription</servlet-class>
+        <servlet-name>InscriptionPage</servlet-name>
+        <servlet-class>Servlets.InscriptionPage</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>inscriptionScript</servlet-name>
-        <servlet-class>Servlets.inscriptionScript</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>connexionScript</servlet-name>
-        <servlet-class>Servlets.connexionScript</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>connexion</servlet-name>
-        <servlet-class>Servlets.connexion</servlet-class>
+        <servlet-name>InscriptionController</servlet-name>
+        <servlet-class>Servlets.InscriptionController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
@@ -29,20 +21,12 @@
         <welcome-file>index</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
-        <servlet-name>inscription</servlet-name>
-        <url-pattern>/inscription</url-pattern>
+        <servlet-name>InscriptionPage</servlet-name>
+        <url-pattern>/Inscription</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>inscriptionScript</servlet-name>
-        <url-pattern>/inscriptionScript</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>connexionScript</servlet-name>
-        <url-pattern>/connexionScript</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>connexion</servlet-name>
-        <url-pattern>/connexion</url-pattern>
+        <servlet-name>InscriptionController</servlet-name>
+        <url-pattern>/InscriptionController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

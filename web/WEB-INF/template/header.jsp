@@ -38,7 +38,7 @@
                 </ul>
                 <ul id="dropdown1" class="dropdown-content z-depth-2" style="margin-top: 64px;">
                     <li><a href="connexion"><i class="material-icons left">lock_open</i>  Connexion</a></li>
-                    <li><a href="inscription"><i class="material-icons left">perm_identity</i>   Inscription</a></li>
+                    <li><a href="./Inscription"><i class="material-icons left">perm_identity</i>   Inscription</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="Chiens">Chiens</a></li>
@@ -48,7 +48,7 @@
                     <li><a href="Divers">Divers</a></li>
                     <li><a href="Panier">Panier</a></li>
                     <li><a href="connexion">Connexion</a></li>
-                    <li><a href="inscription">Inscription</a></li>
+                    <li><a href="./Inscription">Inscription</a></li>
                 </ul>
             </div>
         </nav>

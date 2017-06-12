@@ -6,7 +6,7 @@
 package Servlets;
 
 import Class.Compte;
-import Modele.Inscription;
+import Modele.InscriptionModele;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thibault
+ * @author Thinkpad-Falcort
  */
-public class inscriptionScript extends HttpServlet {
+public class InscriptionController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class inscriptionScript extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet inscriptionScript</title>");
+            out.println("<title>Servlet InscriptionController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet inscriptionScript at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet InscriptionController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +60,7 @@ public class inscriptionScript extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**
@@ -72,17 +72,23 @@ public class inscriptionScript extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Inscription form = new Inscription();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        InscriptionModele form = new InscriptionModele();
+
         Compte client;
         try {
-            client = form.inscriptionClient(request);
+            client = form.inscrireClient(request);
+            String result = form.getResultat();
+            System.out.println(result);
+            request.setAttribute("form", form);
+            request.setAttribute("client", client);
+            request.setAttribute("result", result);
         } catch (Exception ex) {
-            Logger.getLogger(inscriptionScript.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp");
+        this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
 
     }
 
