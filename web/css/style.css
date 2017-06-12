@@ -20,5 +20,10 @@ body
 
 .erreur
 {
-    color: red;
+    color : red;
+}
+
+#erreur, #valider
+{
+    color: white;
 }
