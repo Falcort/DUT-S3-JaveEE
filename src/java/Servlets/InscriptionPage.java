@@ -56,13 +56,7 @@ public class InscriptionPage extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd;
-        rd = request.getRequestDispatcher("WEB-INF/template/header.jsp");
-        rd.include(request, response);
-        rd = request.getRequestDispatcher("WEB-INF/inscription.jsp");
-        rd.include(request, response);
-        rd = request.getRequestDispatcher("WEB-INF/template/footer.jsp");
-        rd.include(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
     }
 
     /**

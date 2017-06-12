@@ -13,6 +13,10 @@
         <servlet-name>InscriptionController</servlet-name>
         <servlet-class>Servlets.InscriptionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConnexionPage</servlet-name>
+        <servlet-class>Servlets.ConnexionPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>InscriptionController</servlet-name>
         <url-pattern>/InscriptionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnexionPage</servlet-name>
+        <url-pattern>/Connexion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

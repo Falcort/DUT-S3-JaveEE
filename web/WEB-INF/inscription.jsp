@@ -1,3 +1,4 @@
+<jsp:include page="template/header.jsp" />
 <section id="inscription">
     <div class="container card-panel" style="padding: 15px;">
         <div class="col s6 center">
@@ -63,3 +64,4 @@
         </div>
     </div>
 </section>
+<jsp:include page="template/footer.jsp" />

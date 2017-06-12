@@ -1,3 +1,4 @@
+<jsp:include page="template/header.jsp" />
 <section id="home">
     <div class="container center" style="padding: 15px;">
         <h1>Animalus</h1>
@@ -42,3 +43,4 @@
     });
 
 </script>
+<jsp:include page="template/footer.jsp" />

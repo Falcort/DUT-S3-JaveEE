@@ -1,14 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class index extends HttpServlet {
+/**
+ *
+ * @author Thinkpad-Falcort
+ */
+public class ConnexionPage extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,10 +35,10 @@ public class index extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet index</title>");
+            out.println("<title>Servlet ConnexionPage</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet index at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConnexionPage at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -47,7 +55,7 @@ public class index extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
     }
 
     /**

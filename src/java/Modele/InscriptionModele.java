@@ -24,13 +24,6 @@ import javax.sql.DataSource;
  */
 public class InscriptionModele
 {
-    private static final String CHAMP_EMAIL = "email";
-    private static final String CHAMP_PASS = "password";
-    private static final String CHAMP_CONF = "passwordRe";
-    private static final String CHAMP_NOM = "nom";
-    private static final String CHAMP_PRENOM = "prenom";
-    private static final String CHAMP_LOGIN = "pseudo";
-    private static final String CHAMP_CELL = "telephone";
 
     private String resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();
@@ -44,19 +37,19 @@ public class InscriptionModele
     }
 
     public Compte inscrireClient(HttpServletRequest request) throws Exception {
-        String email = getValeurChamp(request, CHAMP_EMAIL);
+        String email = request.getParameter("email");
         System.out.println(email);
-        String password = getValeurChamp(request, CHAMP_PASS);
+        String password = request.getParameter("password");
         System.out.println(password);
-        String passwordRe = getValeurChamp(request, CHAMP_CONF);
+        String passwordRe = request.getParameter("passwordRe");
         System.out.println(passwordRe);
-        String nom = getValeurChamp(request, CHAMP_NOM);
+        String nom = request.getParameter("nom");
         System.out.println(nom);
-        String prenom = getValeurChamp(request, CHAMP_PRENOM);
+        String prenom = request.getParameter("prenom");
         System.out.println(prenom);
-        String telephone = getValeurChamp(request, CHAMP_CELL);
+        String telephone = request.getParameter("telephone");
         System.out.println(telephone);
-        String pseudo = getValeurChamp(request, CHAMP_LOGIN);
+        String pseudo = request.getParameter("pseudo");
         System.out.println(pseudo);
 
         Compte client = new Compte();
@@ -64,43 +57,49 @@ public class InscriptionModele
         try {
             validationEmail(email);
         } catch (Exception e) {
-            setErreur(CHAMP_EMAIL, e.getMessage());
+            System.out.println("Erreuer email");
+            setErreur("email", e.getMessage());
         }
         client.setEmail(email);
 
         try {
-            validationLogin(pseudo);
+            validationPseudo(pseudo);
         } catch (Exception e) {
-            setErreur(CHAMP_LOGIN, e.getMessage());
+            System.out.println("Erreuer pseudo");
+            setErreur("pseudo", e.getMessage());
         }
         client.setPseudo(pseudo);
 
         try {
             validationPrenom(prenom);
         } catch (Exception e) {
-            setErreur(CHAMP_PRENOM, e.getMessage());
+            System.out.println("Erreuer prenom");
+            setErreur("prenom", e.getMessage());
         }
         client.setPrenom(prenom);
 
         try {
-            validationCell(telephone);
+            validationTelephone(telephone);
         } catch (Exception e) {
-            setErreur(CHAMP_CELL, e.getMessage());
+            System.out.println("Erreuer telephone");
+            setErreur("telephone", e.getMessage());
         }
         client.setTelephone(telephone);
 
         try {
             validationMotsDePasse(password, passwordRe);
         } catch (Exception e) {
-            setErreur(CHAMP_PASS, e.getMessage());
-            setErreur(CHAMP_CONF, null);
+            System.out.println("Erreuer password");
+            setErreur("password", e.getMessage());
+            setErreur("passwordRe", null);
         }
         client.setMotDePasse(password);
 
         try {
             validationNom(nom);
         } catch (Exception e) {
-            setErreur(CHAMP_NOM, e.getMessage());
+            System.out.println("Erreuer nom");
+            setErreur("nom", e.getMessage());
         }
         client.setNom(nom);
 
@@ -193,7 +192,7 @@ public class InscriptionModele
     }
 
     private void validationNom(String nom) throws Exception {
-        if (nom == null) {
+        if (nom == null || nom.length() == 0) {
             throw new Exception("Le nom d'utilisateur doit être non vide.");
         }
     }
@@ -202,29 +201,20 @@ public class InscriptionModele
         erreurs.put(champ, message);
     }
 
-    private static String getValeurChamp(HttpServletRequest request, String nomChamp) {
-        String valeur = request.getParameter(nomChamp);
-        if (valeur == null || valeur.trim().length() == 0) {
-            return null;
-        } else {
-            return valeur.trim();
-        }
-    }
-
-    private void validationLogin(String login) throws Exception {
-        if (login == null || login.length() < 3) {
+    private void validationPseudo(String pseudo) throws Exception {
+        if (pseudo == null || pseudo.length() < 3) {
             throw new Exception("Le login doit être d'au moins 3 caractères.");
         }
     }
 
     private void validationPrenom(String prenom) throws Exception {
-        if (prenom == null) {
+        if (prenom == null || prenom.length() == 0) {
             throw new Exception("Le prénom doit être non vide.");
         }
     }
 
-    private void validationCell(String cell) throws Exception {
-        if (cell == null) {
+    private void validationTelephone(String telephone) throws Exception {
+        if (telephone == null || telephone.length() == 0) {
             throw new Exception("Le numéro de téléphone doit être non vide.");
         }
     }    
