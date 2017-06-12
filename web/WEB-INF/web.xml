@@ -17,6 +17,10 @@
         <servlet-name>ConnexionPage</servlet-name>
         <servlet-class>Servlets.ConnexionPage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConnexionController</servlet-name>
+        <servlet-class>Servlets.ConnexionController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -35,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>ConnexionPage</servlet-name>
         <url-pattern>/Connexion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnexionController</servlet-name>
+        <url-pattern>/ConnexionController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
