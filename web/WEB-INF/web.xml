@@ -25,6 +25,10 @@
         <servlet-name>Deconnexion</servlet-name>
         <servlet-class>Servlets.Deconnexion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChatPage</servlet-name>
+        <servlet-class>Servlets.ChatPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>Deconnexion</servlet-name>
         <url-pattern>/Deconnexion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChatPage</servlet-name>
+        <url-pattern>/Chat</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

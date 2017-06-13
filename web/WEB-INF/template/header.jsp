@@ -50,7 +50,7 @@
 
                 <ul class="left hide-on-med-and-down">
                     <li><a href="Chiens">Chiens</a></li>
-                    <li><a href="Chats">Chats</a></li>
+                    <li><a href="./Chat">Chats</a></li>
                     <li><a href="Oiseaux">Oiseaux</a></li>
                     <li><a href="Poissons">Poissons</a></li>
                     <li><a href="Divers">Divers</a></li>
@@ -97,7 +97,7 @@
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="Chiens">Chiens</a></li>
-                    <li><a href="Chats">Chats</a></li>
+                    <li><a href="./Chat">Chats</a></li>
                     <li><a href="Oiseaux">Oiseaux</a></li>
                     <li><a href="Poissons">Poissons</a></li>
                     <li><a href="Divers">Divers</a></li>
