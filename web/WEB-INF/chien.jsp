@@ -3,14 +3,40 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
   <body>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <div class="row">
+          <div class="col s12 m6">
+            <c:forEach items="${liste}" var="article" >
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/<c:out value="${dogProd['photoDog']}"/>" alt="">
+                    <span class="card-title">Chien</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                  </div>
+                  <div class="card-content">
+                    <div>
+                        <input type="hidden" name="modelNo" value="<c:out value="${dogProd['raceProd']}"/>">
+                        <p><c:out value="${dogProd['raceDog']}"/></p>
+                        <input type="hidden" size="2" value="1" name="quantity">
+
+                        <input type="hidden" name="price" value="<c:out value="${dogProd['priceDog']}"/>">
+                        <p>Prix :<c:out value="${dogProd['priceDog']}"/> euros</p> 
+
+                        <input type="hidden" name="action" value="add">
+                        <input class="button" type="submit" name="addToCart" value="Ajouter" >
+                    </div>
+                </div>
+            </c:forEach>
+          </div>
+        </div>
+	<%--><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		<div class="col-12">
                     <c:forEach items="${liste}" var="produit" >
                         <section>	
                             <div>
                                 <div>
                                     <form name="model1" method="POST" action="./PanierControle">							
-                                        <a href="./ProductServlet?i=<c:out value="${dogProd['idDog']}"/>"><img class="ballons"src="<c:out value="${dogProd['photoDog']}"/>" alt=""></a>                                      
+                                        <a href="./ProductServlet?i=<c:out value="${dogProd['idDog']}"/>"><img src="<c:out value="${dogProd['photoDog']}"/>" alt=""></a>                                      
                                         <div>
                                             <input type="hidden" name="modelNo" value="<c:out value="${dogProd['raceProd']}"/>">
                                             <p><c:out value="${dogProd['raceDog']}"/></p>
@@ -28,7 +54,7 @@
                             </div>
                         </section>		
                     </c:forEach>   
-		</div>
+		</div><--%>
   </body>
 </html>
 
