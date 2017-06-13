@@ -27,6 +27,12 @@ public class ConnexionModele
 {
     private String resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();
+    private HttpServletResponse response;
+    
+    public HttpServletResponse getResponse()
+    {
+        return response;
+    }
     
     public String getResultat() {
         return resultat;
@@ -41,7 +47,7 @@ public class ConnexionModele
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String check = request.getParameter("check");
-        
+        this.response = response;
         System.out.println("Check = " + check);
         
         try {
@@ -71,25 +77,26 @@ public class ConnexionModele
                 System.out.println("Check is on");
                 isLogged.setMaxAge(60*60*24*7);
                 id.setMaxAge(60*60*24*7); 
-                response.addCookie(isLogged);
-                response.addCookie(id);
+                this.response.addCookie(isLogged);
+                this.response.addCookie(id);
+                resultat = "GG";
             }
             else
             {
                 System.out.println("Check is off");
                 isLogged.setMaxAge(60*60);
                 id.setMaxAge(60*60);
-                response.addCookie(isLogged);
-                response.addCookie(id);
+                this.response.addCookie(isLogged);
+                this.response.addCookie(id);
+                resultat = "GG";
             }
         }
-        
         Compte client = new Compte();
         return client;
     }
     
     private void validationEmail(String email) throws Exception {
-        if (email != null) {
+        if (email != "") {
             if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
                 throw new Exception("Merci de saisir une adresse mail valide.");
             }
@@ -99,14 +106,18 @@ public class ConnexionModele
     }
     
     private void validatePassword(String password) throws Exception {
-        if(password != null)
+        if(password != "")
         {
             if(password.length() < 3)
             {
                 throw new Exception("Les mots de passe doivent contenir au moins 3 caractères.");
             }
-            throw new Exception("Merci de saisir et confirmer votre mot de passe.");
         }
+        if(password == "")
+        {
+            throw new Exception("Merci de saisir votre mot de passe.");
+        }
+        
     }
     
     private void setErreur(String champ, String message) {
@@ -123,7 +134,7 @@ public class ConnexionModele
         
         try
         {
-            String query = "SELECT id FROM Utilisateurs WHERE email = ? OR mdp = ?";
+            String query = "SELECT id FROM Utilisateurs WHERE email = ? AND mdp = ?";
             PreparedStatement pstmt = connexion.prepareStatement(query);
             pstmt.setString(1, email);
             pstmt.setString(2, password);

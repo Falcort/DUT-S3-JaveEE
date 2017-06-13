@@ -1,24 +1,28 @@
 <%
-    Cookie[] cookies = request.getCookies();
     Boolean connected = false;
-    Boolean id = false;
-    Boolean isLogged = false;
+    if(request.getCookies() != null)
+    {
+        Cookie[] cookies = request.getCookies();
+        Boolean id = false;
+        Boolean isLogged = false;
 
-    for (int i =0; i < cookies.length; i++)
-    {
-        Cookie cookieTmp = cookies[i];
-        if (cookieTmp.getName().equals("id"))
+        for (int i =0; i < cookies.length; i++)
         {
-            id = true;
+            System.out.println("HEADER : " + i);
+            Cookie cookieTmp = cookies[i];
+            if (cookieTmp.getName().equals("id"))
+            {
+                id = true;
+            }
+            if (cookieTmp.getName().equals("isLogged"))
+            {
+                isLogged = true;
+            }
         }
-        if (cookieTmp.getName().equals("isLogged"))
+        if(id && isLogged)
         {
-            isLogged = true;
+            connected = true;
         }
-    }
-    if(id && isLogged)
-    {
-        connected = true;
     }
 %>
 
@@ -85,6 +89,11 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
                     <li><a href="Panier"><i class="material-icons left">dashboard</i>  Mon compte</a></li>
+                    <li>
+                        <a class="waves-effect waves-light btn" href="./Deconnexion">
+                            <i class="large material-icons right">power_settings_new</i>   Deconnexion
+                        </a>
+                    </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="Chiens">Chiens</a></li>
@@ -94,6 +103,11 @@
                     <li><a href="Divers">Divers</a></li>
                     <li><a href="Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
                     <li><a href="Panier"><i class="material-icons left">dashboard</i>  Mon compte</a></li>
+                    <li>
+                        <a class="waves-effect waves-light btn" href="./Deconnexion">
+                            <i class="large material-icons right">power_settings_new</i>   Deconnexion
+                        </a>
+                    </li>
                 </ul>
                 <%
                 }

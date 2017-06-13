@@ -76,9 +76,12 @@ public class ConnexionPage extends HttpServlet {
         if(id && isLogged)
         {
             connected = true;
-            this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/");
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+        else
+        {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);   
+        }
     }
 
     /**
@@ -90,9 +93,36 @@ public class ConnexionPage extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Cookie[] cookies = request.getCookies();
+        Boolean connected = false;
+        Boolean id = false;
+        Boolean isLogged = false;
+
+        for (int i =0; i < cookies.length; i++)
+        {
+            System.out.println(i);
+            Cookie cookieTmp = cookies[i];
+            if (cookieTmp.getName().equals("id"))
+            {
+                System.out.println("ID TROUVER");
+                id = true;
+            }
+            if (cookieTmp.getName().equals("isLogged"))
+            {
+                System.out.println("LOGG TROUVER");
+                isLogged = true;
+            }
+        }
+        if(id && isLogged)
+        {
+            connected = true;
+            response.sendRedirect(request.getContextPath() + "/");
+        }
+        else
+        {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);   
+        }
     }
 
     /**

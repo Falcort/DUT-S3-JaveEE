@@ -21,6 +21,10 @@
         <servlet-name>ConnexionController</servlet-name>
         <servlet-class>Servlets.ConnexionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Deconnexion</servlet-name>
+        <servlet-class>Servlets.Deconnexion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>ConnexionController</servlet-name>
         <url-pattern>/ConnexionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deconnexion</servlet-name>
+        <url-pattern>/Deconnexion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

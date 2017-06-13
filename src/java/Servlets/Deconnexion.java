@@ -5,23 +5,20 @@
  */
 package Servlets;
 
-import Class.Compte;
-import Modele.ConnexionModele;
-import Modele.InscriptionModele;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thinkpad-Falcort
+ * @author Thibault
  */
-public class ConnexionController extends HttpServlet {
+public class Deconnexion extends HttpServlet
+{
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,17 +30,19 @@ public class ConnexionController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter())
+        {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConnexionController</title>");            
+            out.println("<title>Servlet Deconnexion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConnexionController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Deconnexion at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,9 +58,19 @@ public class ConnexionController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        System.out.println("get");
+        Cookie[] cookies = request.getCookies();
+        System.out.println(cookies);
+
+        for (int i =0; i < cookies.length; i++)
+        {
+            cookies[i].setMaxAge(0);
+            response.addCookie(cookies[i]);
+        }
+        response.sendRedirect(request.getContextPath() + "/");
+        //this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 
     /**
@@ -73,29 +82,8 @@ public class ConnexionController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ConnexionModele form = new ConnexionModele();
-
-        Compte client;
-        String result="";
-        try {
-            client = form.connecterClient(request, response);
-            result = form.getResultat();
-            System.out.println(result);
-            request.setAttribute("form", form);
-            request.setAttribute("client", client);
-            request.setAttribute("result", result);
-        } catch (Exception ex) {
-            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(result.equals("GG"))
-        {
-            response.sendRedirect(request.getContextPath() + "/Connexion");
-        }
-        else
-        {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);  
-        }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
     }
 
     /**
@@ -104,7 +92,8 @@ public class ConnexionController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 
