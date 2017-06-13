@@ -12,15 +12,25 @@
     }
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="row">
+<div id="products" class="row">
     <c:forEach items="${Chat}" var="article" >
         <div class="col s6">
             <div class="card">
-                <div class="card-image">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/></a>
+                    <a>
                     <img src="images/<c:out value="${article['photoArticle']}"/>" alt="">
-                    <span class="card-title">Chat</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </a>
                 </div>
+                <ul class=""card-action-buttons">
+                    <li>
+                        <a class="btn-floating waves-effect waves-light light-blue">
+                            <i class="mdi-action-info activator">
+                                <p><c:out value="${article['nomArticle']}"/></p>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
                 <div class="card-content">
                     <div>
                         <input type="hidden" name="modelNo" value="<c:out value="${article['nomArticle']}"/>">
