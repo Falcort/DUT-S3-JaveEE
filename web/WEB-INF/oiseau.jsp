@@ -1,9 +1,4 @@
 <jsp:include page="template/header.jsp" />
-<%-- 
-    Document   : chat
-    Created on : Jun 12, 2017, 9:53:15 AM
-    Author     : Jennifer
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -25,16 +20,16 @@
                                             <p class="prixactuel">Prix :<c:out value="${produit['prixProduit']}"/> euros</p> 
                                             
                                             <input type="hidden" name="action" value="add">
-                                            <input class="button" type="submit" name="addToCart" value="Ajouter !" >
+                                            <input class="button" type="submit" name="addToCart" value="Ajouter" >
                                             
                                         </div>
                                     </form>
-                                </div>
+                                </div>		
+
                             </div>
                         </section>		
                     </c:forEach>   
 		</div>
-		
   </body>
 </html>
 

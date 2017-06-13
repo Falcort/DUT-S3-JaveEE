@@ -1,9 +1,4 @@
 <jsp:include page="template/header.jsp" />
-<%-- 
-    Document   : panier
-    Created on : Jun 12, 2017, 9:35:44 AM
-    Author     : Jennifer
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>

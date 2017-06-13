@@ -5,19 +5,26 @@
  */
 package Servlets;
 
-import Class.Compte;
+import Modele.BDD;
+import Modele.CatModele;
 import Modele.ConnexionModele;
-import Modele.InscriptionModele;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
-public class ConnexionController extends HttpServlet {
+public class Chat extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +43,10 @@ public class ConnexionController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConnexionController</title>");            
+            out.println("<title>Servlet Chat</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConnexionController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Chat at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,9 +62,35 @@ public class ConnexionController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        DataSource cnx = BDD.getDataSource();
+        Connection connexion = cnx.getConnection(); 
+        
+        Resultset res = null;
+        try {
+            res = statement.executeQuery("SELECT * FROM Cat");
+        } catch (SQLException ex) {
+            Logger.getLogger(Modele.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Modele catProd = new Modele();
+        try {
+            while (res.next()) {
+                int idCat = res.getInt("idCat");
+                String photoCat = res.getString("photoCat");
+                String raceCat = res.getString("raceCat");
+                int priceCat = res.getInt("priceCat");
+                CatModele cat = new CatModele();
+                cat.setIdCat(idCat);
+                cat.setRaceCat(raceCat);
+                cat.setPriceCat(priceCat);
+                cat.setPhotoCat(photoCat);
+                
+                catProd.ajout(cat);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Modele.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -69,22 +102,9 @@ public class ConnexionController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ConnexionModele form = new ConnexionModele();
-
-        Compte client;
-        try {
-            client = form.connecterClient(request, response);
-            String result = form.getResultat();
-            System.out.println(result);
-            request.setAttribute("form", form);
-            request.setAttribute("client", client);
-            request.setAttribute("result", result);
-        } catch (Exception ex) {
-            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
