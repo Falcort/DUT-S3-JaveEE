@@ -25,8 +25,13 @@
                 <ul class=""card-action-buttons">
                     <li>
                         <a class="btn-floating waves-effect waves-light light-blue">
-                            <i class="mdi-action-info activator">
-                                <p><c:out value="${article['nomArticle']}"/></p>
+                            <i class="material-icons">
+                                info_outline
+                            </i>
+                        </a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red">
+                            <i class="material-icons">
+                                add
                             </i>
                         </a>
                     </li>
