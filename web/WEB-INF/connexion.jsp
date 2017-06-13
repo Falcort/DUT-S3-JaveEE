@@ -1,29 +1,3 @@
-
-<%
-    Cookie[] cookies = request.getCookies();
-    Boolean connected = false;
-    Boolean id = false;
-    Boolean isLogged = false;
-    
-    for (int i =0; i < cookies.length; i++)
-    {
-        Cookie cookieTmp = cookies[i];
-        if (cookieTmp.getName().equals("id"))
-        {
-            id = true;
-        }
-        if (cookieTmp.getName().equals("isLogged"))
-        {
-            isLogged = true;
-        }
-    }
-    if(id && isLogged)
-    {
-        connected = true;
-        System.out.println("looooooooooool");
-    }
- %>
-
 <jsp:include page="template/header.jsp" />
 <section id="connexion">
     <div class="container card-panel" style="padding: 15px;">

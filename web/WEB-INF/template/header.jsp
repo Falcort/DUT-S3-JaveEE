@@ -1,3 +1,27 @@
+<%
+    Cookie[] cookies = request.getCookies();
+    Boolean connected = false;
+    Boolean id = false;
+    Boolean isLogged = false;
+
+    for (int i =0; i < cookies.length; i++)
+    {
+        Cookie cookieTmp = cookies[i];
+        if (cookieTmp.getName().equals("id"))
+        {
+            id = true;
+        }
+        if (cookieTmp.getName().equals("isLogged"))
+        {
+            isLogged = true;
+        }
+    }
+    if(id && isLogged)
+    {
+        connected = true;
+    }
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,6 +51,9 @@
                     <li><a href="Poissons">Poissons</a></li>
                     <li><a href="Divers">Divers</a></li>
                 </ul>
+                <%
+                if(!connected)
+                { %>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
                     <li>
@@ -39,7 +66,7 @@
                 <ul id="dropdown1" class="dropdown-content z-depth-2" style="margin-top: 64px;">
                     <li><a href="./Connexion"><i class="material-icons left">lock_open</i>  Connexion</a></li>
                     <li><a href="./Inscription"><i class="material-icons left">perm_identity</i>   Inscription</a></li>
-                </ul>
+                </ul> 
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="Chiens">Chiens</a></li>
                     <li><a href="Chats">Chats</a></li>
@@ -50,6 +77,27 @@
                     <li><a href="./Connexion"> <i class="material-icons left">lock_open</i>Connexion</a></li>
                     <li><a href="./Inscription"><i class="material-icons left">perm_identity</i> Inscription</a></li>
                 </ul>
+                <%
+                }
+                else
+                {
+                %>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
+                    <li><a href="Panier"><i class="material-icons left">dashboard</i>  Mon compte</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="Chiens">Chiens</a></li>
+                    <li><a href="Chats">Chats</a></li>
+                    <li><a href="Oiseaux">Oiseaux</a></li>
+                    <li><a href="Poissons">Poissons</a></li>
+                    <li><a href="Divers">Divers</a></li>
+                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
+                    <li><a href="Panier"><i class="material-icons left">dashboard</i>  Mon compte</a></li>
+                </ul>
+                <%
+                }
+                %>
             </div>
         </nav>
         <script>
