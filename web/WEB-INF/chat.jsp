@@ -29,9 +29,6 @@
 
                         <input type="hidden" name="price" value="<c:out value="${article['prixArticle']}"/>">
                         <p>Prix :<c:out value="${article['prixArticle']}"/> euros</p> 
-
-                        <input type="hidden" name="action" value="add">
-                        <input class="button" type="submit" name="addToCart" value="Ajouter" >
                     </div>
                 </div>
             </div>
