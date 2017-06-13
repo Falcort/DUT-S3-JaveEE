@@ -3,11 +3,10 @@ body
     background-color: #fcfcfc;
 }
 
-#inscription, #connexion, #home
+.container
 {
-    margin-top: 20px;
+    margin: auto; /* eh oui, tout bêtement */
 }
-
 #inscription .card-panel, #connexion .card-panel
 {
     margin: auto;
@@ -26,4 +25,41 @@ body
 #erreur, #valider
 {
     color: white;
+}
+
+.breadcrumb:last-child
+{
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#panier, #address, #payement, #confirmation
+{
+    color: #fff;
+}
+
+#card-alert i
+{
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+}
+
+body
+{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main
+{
+    flex: 1 0 auto;
+    display: flex;
+}
+
+#menu, .pulse
+{
+    position: absolute !important;
+    bottom: 50px !important;
+    right: 50px !important;
 }

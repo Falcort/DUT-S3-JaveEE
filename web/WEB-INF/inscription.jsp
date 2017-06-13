@@ -1,5 +1,5 @@
 <jsp:include page="template/header.jsp" />
-<section id="inscription">
+<section id="inscription" class="col s12">
     <div class="container card-panel" style="padding: 15px;">
         <div class="col s6 center">
             

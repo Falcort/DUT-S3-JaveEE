@@ -1,12 +1,12 @@
 <%
     Boolean connected = false;
-    if(request.getCookies() != null)
+    if (request.getCookies() != null)
     {
         Cookie[] cookies = request.getCookies();
         Boolean id = false;
         Boolean isLogged = false;
 
-        for (int i =0; i < cookies.length; i++)
+        for (int i = 0; i < cookies.length; i++)
         {
             System.out.println("HEADER : " + i);
             Cookie cookieTmp = cookies[i];
@@ -19,7 +19,7 @@
                 isLogged = true;
             }
         }
-        if(id && isLogged)
+        if (id && isLogged)
         {
             connected = true;
         }
@@ -56,10 +56,10 @@
                     <li><a href="Divers">Divers</a></li>
                 </ul>
                 <%
-                if(!connected)
-                { %>
+                    if (!connected)
+                    { %>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
+                    <li><a href="Panier"><i class="material-icons left">shopping_basket</i>  Panier</a></li>
                     <li>
                         <a class="dropdown-button" href="#!" data-activates="dropdown1">
                             <i class="material-icons left">person_pin</i>   Compte
@@ -110,13 +110,39 @@
                     </li>
                 </ul>
                 <%
-                }
+                    }
                 %>
             </div>
         </nav>
+                    <!-- Element Showed -->
+  <a id="menu" class="waves-effect waves-light btn btn-floating btn-large pulse" ><i class="material-icons">menu</i></a>
+
+  <!-- Tap Target Structure -->
+  <div class="tap-target" data-activates="menu">
+    <div class="tap-target-content">
+      <h4>ANIMALUS</h4>
+      <h5>Lance sont service d'adoption !</h5>
+      <p>Adoptez un animal en nous contactant au :</p><p>04 42 42 42 42</p>
+    </div>
+  </div>
         <script>
             $(document).ready(function () {
                 $(".button-collapse").sideNav();
                 $(".dropdown-button").dropdown();
+                
+                i = 0;
+                $('#menu').on('click', function(e) {
+                    if(i%2 == 0)
+                    {
+                       $('.tap-target').tapTarget('open'); 
+                    }
+                    else
+                    {
+                        $('.tap-target').tapTarget('close');
+                    }
+                });
             });
         </script>
+ 
+        <main>
+            <div class="container">

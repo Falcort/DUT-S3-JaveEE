@@ -1,50 +1,73 @@
 <jsp:include page="template/header.jsp" />
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html>
-    <body>
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <section>
-
-            <div class="col-10 panier">
-                <h1>Votre panier :</h1>
-                <jsp:useBean id="cart" scope="session"/>
-                <c:choose>
-                    <c:when test="${cart.lineItemCount==0}" > 
-                        Votre panier est vide.
-                    </c:when> 
-                    <c:otherwise>
-                        <c:forEach var="cartItem" items="${cart.cartItems}" varStatus="counter">
-                            <form name="item" method="POST" action="#">
-                                <c:out value="${cartItem.partNumber}"/> </BR>
-                                <c:out value="${cartItem.modelDescription}"/> </BR>
-                                <input type='hidden' name='itemIndex' value='<c:out value="${counter.count}"/>'><input type='text' name="quantity" value='<c:out value="${cartItem.quantity}"/>' size='2'> <input class="button" type="submit" name="action" value="Delete"><input class="button" type="submit" name="action" value="Update"></BR>
-
-                                Prix unitaire : <c:out value="${cartItem.unitCost}"/> euros</BR>
-                                Prix total : <c:out value="${cartItem.totalCost}"/> euros</BR></BR>
-                            </form>
-                        </c:forEach>   
-                        Total: $<c:out value="${cart.orderTotal}"/>
-
-                        <c:choose>
-                            <c:when test="${empty sessionScope.sessionUtilisateur}" >
-                                Connectez-vous pour accéder au paiement.
-                            </c:when>
-                            <c:otherwise>
-                                <a href="./PaiementControle"><button class="button"><span>Payer ?</span></button></a>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:otherwise>
-                </c:choose>
+<div class="row" style="margin-top: 25px">
+    <div class="col s12">
+        <nav>
+            <div class="nav-wrapper center-align">
+                <div class="col s12">
+                    <a href="./Panier" class="breadcrumb" id="panier">Panier</a>
+                    <a href="#!" class="breadcrumb">Adresse de livraison</a>
+                    <a href="#!" class="breadcrumb">Payement</a>
+                    <a href="#!" class="breadcrumb">Confirmation</a>
+                </div>
             </div>
-            <div class="col-2 achat">
-                <a href="./index" title="achat"><p>Poursuivez vos achats.</p></a>
-            </div>
+        </nav>
+    </div>
+</div>
 
-        </section>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Nom de l'article</th>
+            <th>Quantity</th>
+            <th>Prix</th>
+        </tr>
+    </thead>
+    <tfoot style="border-top: 2px solid black">
+        <tr>
+            <td></td>
+            <td><b>Total :</b></td>
+            <td><b>$180</b></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+        </tr>
+        <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+        </tr>
+        <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+        </tr>
+    </tbody>
+</table>
+<div class="row center-align" style="margin-top: 25px">
+    <div class="col s6">
+        <a class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>Sauvegarder le panier</a>
+    </div>
+    <div class="col s6">
+        <a class="waves-effect waves-light btn"><i class="material-icons right">payment</i>Payer !</a>
+    </div>
+</div>
 
-    </body>
+<hr>
 
-</html>
-
+<div id="card-alert" class="card red">
+    <div class="card-content white-text center-align">
+        <p><i class="material-icons">report_problem</i> ERREUR : Votrez panier est vide</p>
+    </div>
+</div>
+<hr>
+<div id="card-alert" class="card green">
+    <div class="card-content white-text center-align">
+        <p><i class="material-icons">done</i> SUCCESS : Vous ete connectez</p>
+    </div>
+</div>
 <jsp:include page="template/footer.jsp" />
