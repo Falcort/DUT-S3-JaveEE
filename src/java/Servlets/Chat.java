@@ -6,7 +6,7 @@
 package Servlets;
 
 import Modele.BDD;
-import Modele.CatModele;
+import Modele.ChatModele;
 import Modele.ConnexionModele;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -80,7 +80,7 @@ public class Chat extends HttpServlet {
                 String photoCat = res.getString("photoCat");
                 String raceCat = res.getString("raceCat");
                 int priceCat = res.getInt("priceCat");
-                CatModele cat = new CatModele();
+                ChatModele cat = new ChatModele();
                 cat.setIdCat(idCat);
                 cat.setRaceCat(raceCat);
                 cat.setPriceCat(priceCat);

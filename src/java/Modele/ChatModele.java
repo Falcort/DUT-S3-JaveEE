@@ -1,6 +1,6 @@
 package Modele;
 
-public class CatModele {
+public class ChatModele {
 
     int idCat;
     String photoCat;
@@ -38,6 +38,4 @@ public class CatModele {
     public void setPriceCat(int priceCat) {
         this.priceCat = priceCat;
     }
-
-
 }
