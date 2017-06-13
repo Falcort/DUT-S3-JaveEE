@@ -58,9 +58,10 @@ main
     display: flex;
 }
 
-#menu, .pulse
+#menu
 {
-    position: absolute !important;
-    bottom: 50px !important;
     right: 50px !important;
+    position: fixed !important;
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
