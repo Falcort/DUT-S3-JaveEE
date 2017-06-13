@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Class.Compte;
 import Modele.BDD;
 import Modele.ArticleModele;
 import Modele.ChatModele;
@@ -67,7 +68,7 @@ public class ChatPage extends HttpServlet {
     {
         ArticleModele catProd = new ArticleModele();
         request.setAttribute("Chat", catProd.getArticleList());
-        
+        response.sendRedirect(request.getContextPath() + "/chat");
     }
 
     /**
@@ -81,7 +82,7 @@ public class ChatPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            processRequest(request, response);
     }
 
     /**
