@@ -26,7 +26,7 @@ public class ArticleModele {
         return articles;
     }
             
-    public void articleChat(List<Article> articles) throws Exception
+    public void articleChat() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
         Connection connexion = cnx.getConnection(); 
@@ -43,6 +43,7 @@ public class ArticleModele {
             Logger.getLogger(ArticleModele.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        System.out.println("RST CHAT" + res);
         while (res.next()) {
                 int idChat = res.getInt("idCat");
                 String photoChat = res.getString("photoCat");
@@ -50,6 +51,7 @@ public class ArticleModele {
                 int prixChat = res.getInt("priceCat");
                 Article chat = new Article(idChat, raceChat, prixChat, photoChat);
                 articles.add(chat);
+                 System.out.println("RST CHAT + 1");
         }
         res.close(); 
     }

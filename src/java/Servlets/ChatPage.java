@@ -66,9 +66,18 @@ public class ChatPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        ArticleModele catProd = new ArticleModele();
-        request.setAttribute("Chat", catProd.getArticleList());
-        response.sendRedirect(request.getContextPath() + "/chat");
+        try
+        {
+            ArticleModele catProd = new ArticleModele();
+            catProd.articleChat();
+            request.setAttribute("Chat", catProd.getArticleList());
+            request.setAttribute("bite", "couille");
+            this.getServletContext().getRequestDispatcher("/WEB-INF/chat.jsp").forward(request, response);
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(ChatPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
