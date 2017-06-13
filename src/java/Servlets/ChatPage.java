@@ -6,6 +6,7 @@
 package Servlets;
 
 import Modele.BDD;
+import Modele.ArticleModele;
 import Modele.ChatModele;
 import Modele.ConnexionModele;
 import java.io.IOException;
@@ -64,33 +65,9 @@ public class ChatPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection(); 
+        ArticleModele catProd = new ArticleModele();
+        request.setAttribute("Chat", catProd.getArticleList());
         
-        Resultset res = null;
-        try {
-            res = statement.executeQuery("SELECT * FROM Cat");
-        } catch (SQLException ex) {
-            Logger.getLogger(Modele.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Modele catProd = new Modele();
-        try {
-            while (res.next()) {
-                int idCat = res.getInt("idCat");
-                String photoCat = res.getString("photoCat");
-                String raceCat = res.getString("raceCat");
-                int priceCat = res.getInt("priceCat");
-                ChatModele cat = new ChatModele();
-                cat.setIdCat(idCat);
-                cat.setRaceCat(raceCat);
-                cat.setPriceCat(priceCat);
-                cat.setPhotoCat(photoCat);
-                
-                catProd.ajout(cat);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Modele.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
