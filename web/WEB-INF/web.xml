@@ -10,6 +10,10 @@
         <servlet-class>Servlets.InscriptionPage</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PanierPage</servlet-name>
+        <servlet-class>Servlets.PanierPage</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>InscriptionController</servlet-name>
         <servlet-class>Servlets.InscriptionController</servlet-class>
     </servlet>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>ChatPage</servlet-name>
         <url-pattern>/Chat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PanierPage</servlet-name>
+        <url-pattern>/Panier</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

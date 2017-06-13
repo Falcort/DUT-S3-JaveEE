@@ -8,17 +8,15 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thibault
+ * @author Thinkpad-Falcort
  */
-public class Deconnexion extends HttpServlet
-{
+public class PanierPage extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,19 +28,17 @@ public class Deconnexion extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter())
-        {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Deconnexion</title>");            
+            out.println("<title>Servlet PanierPage</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Deconnexion at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PanierPage at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,21 +54,8 @@ public class Deconnexion extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        System.out.println("get");
-        Cookie[] cookies = request.getCookies();
-
-        for (int i =0; i < cookies.length; i++)
-        {
-            if(cookies[i].getName().equals("id") || cookies[i].getName().equals("isLogged"))
-            {
-                cookies[i].setMaxAge(0);
-                response.addCookie(cookies[i]);
-            }
-        }
-        response.sendRedirect(request.getContextPath() + "/");
-        //this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
     }
 
     /**
@@ -84,8 +67,9 @@ public class Deconnexion extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -94,8 +78,7 @@ public class Deconnexion extends HttpServlet
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo()
-    {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
