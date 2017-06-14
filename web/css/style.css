@@ -4,6 +4,13 @@ body
     overflow-x: hidden !important;
 }
 
+.card-action-buttons
+{
+    float: right;
+    margin: -20px 10px 0 0;
+    display: inline-flex;
+}
+
 .container
 {
     margin: auto; /* eh oui, tout bêtement */
@@ -58,10 +65,27 @@ main
     display: flex;
 }
 
+.btn-floating.btn-large
+{
+    margin: 10px 0 0 10px;
+}
+
 #menu
 {
     right: 50px !important;
     position: fixed !important;
-    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+    margin-top: 50vh;
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+    float: right;
+}
+
+.tap-target-origin
+{
+    margin: 0 !important;
+}
+
+
+.card-action-buttons li:last-child
+{
+   margin-left: 5px;
 }

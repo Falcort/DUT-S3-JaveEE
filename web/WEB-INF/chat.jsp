@@ -9,22 +9,28 @@
                 <div class="card-image waves-effect waves-block waves-light">
                     <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/></a>
                     <a>
-                    <img src="images/<c:out value="${article['photoArticle']}"/>" alt="">
+                        <img src="images/<c:out value="${article['photoArticle']}"/>" alt="">
                     </a>
                 </div>
                 <ul class="card-action-buttons">
-                    <li>
-                        <a class="btn-floating waves-effect waves-light light-blue">
-                            <i class="material-icons">
-                                info_outline
-                            </i>
-                        </a>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red">
-                            <i class="material-icons">
-                                add
-                            </i>
-                        </a>
-                    </li>
+                    <form>
+                        <li>
+                            <a class="btn-floating waves-effect waves-light light-blue">
+                                <i class="material-icons">
+                                    info_outline
+                                </i>
+                            </a>
+                        </li>
+                    </form>
+                    <form>
+                        <li>
+                            <a class="btn-floating waves-effect waves-light red">
+                                <i class="material-icons">
+                                    add
+                                </i>
+                            </a>
+                        </li>
+                    </form>
                 </ul>
                 <div class="card-content">
                     <div>
