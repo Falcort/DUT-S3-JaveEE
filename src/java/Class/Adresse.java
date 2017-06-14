@@ -20,15 +20,6 @@ public class Adresse implements Serializable {
     private String ville;
     private String telephone;
 
-    public Adresse(String prenom, String nom, String adresse, String cp, String ville, String telephone) {
-        this.prenom = prenom;
-        this.nom = nom;
-        this.adresse = adresse;
-        this.cp = cp;
-        this.ville = ville;
-        this.telephone = telephone;
-    }
-
     public String getPrenom() {
         return prenom;
     }

@@ -1,4 +1,4 @@
-body
+ body
 {
     background-color: #fcfcfc;
     overflow-x: hidden !important;
@@ -15,7 +15,7 @@ body
 {
     margin: auto; /* eh oui, tout bêtement */
 }
-#inscription .card-panel, #connexion .card-panel
+#inscription .card-panel, #connexion .card-panel, #adresseLivraison .card-panel
 {
     margin: auto;
 }

@@ -17,11 +17,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AdresseLivraisonModele {
     
-    private String resultat;
+
     private Map<String, String> erreurs = new HashMap<String, String>();
-    
-    public String getResultat() {
-        return resultat;
+
+    public Map<String, String> getErreurs() {
+        return erreurs;
     }
     
     public Adresse adresseLivraison(HttpServletRequest request) throws Exception {
@@ -39,7 +39,7 @@ public class AdresseLivraisonModele {
         String ville = request.getParameter("ville");
         System.out.println(ville);
         
-        Adresse adresseLivraison = new Adresse(prenom, nom, adresse, cp, ville, telephone);
+        Adresse adresseLivraison = new Adresse();
 
         try {
             validationPrenom(prenom);
@@ -68,13 +68,13 @@ public class AdresseLivraisonModele {
         try {
             validationCp(cp);
         } catch (Exception e) {
-            setErreur("adresse", e.getMessage());
+            setErreur("cp", e.getMessage());
         }
         
         try {
             validationVille(ville);
         } catch (Exception e) {
-            setErreur("adresse", e.getMessage());
+            setErreur("ville", e.getMessage());
         }
 
         return adresseLivraison;

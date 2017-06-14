@@ -77,13 +77,10 @@ public class adresseLivraisonController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        AdresseLivraisonModele form = new AdresseLivraisonModele();
+        AdresseLivraisonModele formu = new AdresseLivraisonModele();
 
         try {
-            String result = form.getResultat();
-            System.out.println(result);
-            request.setAttribute("form", form);
-            request.setAttribute("result", result);
+            request.setAttribute("formu", formu);
         } catch (Exception ex) {
             Logger.getLogger(adresseLivraisonController.class.getName()).log(Level.SEVERE, null, ex);
         }
