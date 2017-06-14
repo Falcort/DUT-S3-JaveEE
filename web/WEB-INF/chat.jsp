@@ -26,7 +26,7 @@
                         <li>
                             <a class="btn-floating waves-effect waves-light red">
                                 <i class="material-icons">
-                                    add
+                                    add_shopping_cart
                                 </i>
                             </a>
                         </li>
