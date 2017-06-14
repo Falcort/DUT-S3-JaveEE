@@ -20,6 +20,12 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="telephone" type="tel" name="telephone" class="validate">
+                        <label for="telephone">Telephone</label>
+                        <span class="erreur">${form.erreurs['telephone']}</span>
+                    </div>
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">location_on</i>
                         <input id="adresse" type="text" name="adresse" class="validate">
                         <label for="adresse">Adresse</label>
@@ -27,25 +33,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">location_on</i>
                         <input id="adresse" type="text" name="cp" class="validate">
                         <label for="cp">Code Postal</label>
                         <span class="erreur">${form.erreurs['cp']}</span>
                     </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">location_on</i>
-                            <input id="ville" type="text" name="ville" class="validate">
-                            <label for="ville">Ville</label>
-                        <span class="erreur">${form.erreurs['ville']}</span>
-                        </div>
-                </div>
-                <div class="row">
                     <div class="input-field col s6">
-                        <i class="material-icons prefix">phone</i>
-                        <input id="telephone" type="tel" name="telephone" class="validate">
-                        <label for="telephone">Telephone</label>
-                        <span class="erreur">${form.erreurs['telephone']}</span>
+                        <i class="material-icons prefix">location_on</i>
+                        <input id="ville" type="text" name="ville" class="validate">
+                        <label for="ville">Ville</label>
+                    <span class="erreur">${form.erreurs['ville']}</span>
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Valider

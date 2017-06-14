@@ -56,7 +56,8 @@ public class adresseLivraisonPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/adresseLivraison.jsp").forward(request, response);
+        
     }
 
     /**
@@ -70,7 +71,7 @@ public class adresseLivraisonPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/adresseLivraison.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
