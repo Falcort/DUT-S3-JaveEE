@@ -49,6 +49,14 @@
         <servlet-name>DiversPage</servlet-name>
         <servlet-class>Servlets.DiversPage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adresseLivraisonPage</servlet-name>
+        <servlet-class>Servlets.adresseLivraisonPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adresseLivraisonController</servlet-name>
+        <servlet-class>Servlets.adresseLivraisonController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -99,6 +107,14 @@
     <servlet-mapping>
         <servlet-name>DiversPage</servlet-name>
         <url-pattern>/Divers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adresseLivraisonPage</servlet-name>
+        <url-pattern>/adresseLivraison</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adresseLivraisonController</servlet-name>
+        <url-pattern>/adresseLivraisonController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
