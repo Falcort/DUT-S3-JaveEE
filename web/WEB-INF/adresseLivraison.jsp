@@ -58,7 +58,7 @@
                         <i class="material-icons prefix">location_on</i>
                         <input id="ville" type="text" name="ville" class="validate">
                         <label for="ville">Ville</label>
-                    <span class="erreur">${formu.erreurs['ville']}</span>
+                        <span class="erreur">${formu.erreurs['ville']}</span>
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Valider

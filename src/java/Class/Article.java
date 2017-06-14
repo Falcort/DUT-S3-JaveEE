@@ -9,49 +9,59 @@ package Class;
  *
  * @author Jennifer
  */
-public class Article {
-    
+public class Article
+{
+
     private int idArticle;
     private String nomArticle;
     private float prixArticle;
     private String photoArticle;
 
-    public Article(int idArticle, String nomArticle, float prixArticle, String photoArticle) {
+    public Article(int idArticle, String nomArticle, float prixArticle, String photoArticle)
+    {
         this.idArticle = idArticle;
         this.nomArticle = nomArticle;
         this.prixArticle = prixArticle;
         this.photoArticle = photoArticle;
     }
 
-    public int getIdArticle() {
+    public int getIdArticle()
+    {
         return idArticle;
     }
 
-    public String getNomArticle() {
+    public String getNomArticle()
+    {
         return nomArticle;
     }
 
-    public float getPrixArticle() {
+    public float getPrixArticle()
+    {
         return prixArticle;
     }
 
-    public String getPhotoArticle() {
+    public String getPhotoArticle()
+    {
         return photoArticle;
     }
 
-    public void setIdArticle(int idArticle) {
+    public void setIdArticle(int idArticle)
+    {
         this.idArticle = idArticle;
     }
 
-    public void setNomArticle(String nomArticle) {
+    public void setNomArticle(String nomArticle)
+    {
         this.nomArticle = nomArticle;
     }
 
-    public void setPrixArticle(float prixArticle) {
+    public void setPrixArticle(float prixArticle)
+    {
         this.prixArticle = prixArticle;
     }
 
-    public void setPhotoArticle(String photoArticle) {
+    public void setPhotoArticle(String photoArticle)
+    {
         this.photoArticle = photoArticle;
-    } 
+    }
 }

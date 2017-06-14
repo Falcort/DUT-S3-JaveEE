@@ -34,6 +34,7 @@
                 </li>
             </ul>
         </div>
+        <img class="responsive-img" src="images/affiche.png">
     </div>
 </section>
 

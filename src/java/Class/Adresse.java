@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author angel
  */
-public class Adresse implements Serializable {
+public class Adresse implements Serializable
+{
 
     private String prenom;
     private String nom;
@@ -20,52 +21,64 @@ public class Adresse implements Serializable {
     private String ville;
     private String telephone;
 
-    public String getPrenom() {
+    public String getPrenom()
+    {
         return prenom;
     }
 
-    public String getNom() {
+    public String getNom()
+    {
         return nom;
     }
 
-    public String getAdresse() {
+    public String getAdresse()
+    {
         return adresse;
     }
 
-    public String getCp() {
+    public String getCp()
+    {
         return cp;
     }
 
-    public String getVille() {
+    public String getVille()
+    {
         return ville;
     }
 
-    public String getTelephone() {
+    public String getTelephone()
+    {
         return telephone;
     }
 
-    public void setPrenom(String prenom) {
+    public void setPrenom(String prenom)
+    {
         this.prenom = prenom;
     }
 
-    public void setNom(String nom) {
+    public void setNom(String nom)
+    {
         this.nom = nom;
     }
 
-    public void setAdresse(String adresse) {
+    public void setAdresse(String adresse)
+    {
         this.adresse = adresse;
     }
 
-    public void setCp(String cp) {
+    public void setCp(String cp)
+    {
         this.cp = cp;
     }
 
-    public void setVille(String ville) {
+    public void setVille(String ville)
+    {
         this.ville = ville;
     }
 
-    public void setTelephone(String telephone) {
+    public void setTelephone(String telephone)
+    {
         this.telephone = telephone;
     }
-    
+
 }

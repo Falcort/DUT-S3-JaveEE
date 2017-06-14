@@ -39,7 +39,7 @@ public class Deconnexion extends HttpServlet
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Deconnexion</title>");            
+            out.println("<title>Servlet Deconnexion</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Deconnexion at " + request.getContextPath() + "</h1>");
@@ -63,9 +63,9 @@ public class Deconnexion extends HttpServlet
         System.out.println("get");
         Cookie[] cookies = request.getCookies();
 
-        for (int i =0; i < cookies.length; i++)
+        for (int i = 0; i < cookies.length; i++)
         {
-            if(cookies[i].getName().equals("id") || cookies[i].getName().equals("isLogged"))
+            if (cookies[i].getName().equals("id") || cookies[i].getName().equals("isLogged"))
             {
                 cookies[i].setMaxAge(0);
                 response.addCookie(cookies[i]);

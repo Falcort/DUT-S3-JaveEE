@@ -2,15 +2,15 @@
 <section id="inscription" class="col s12">
     <div class="container card-panel" style="padding: 15px;">
         <div class="col s6 center">
-            
+
             <% if(request.getAttribute("result") != null) {
                     if(request.getAttribute("result").equals("Inscription réussie !")) { %>
-                        <h1 class="col s8 offset-s2 center-align card-panel lime accent-3" id="valider"> ${result} </h1>
-                    <% } else { %>
-                        <h1 class="col s8 offset-s2 center-align card-panel red lighten-1" id="erreur"> ${result} </h1>
-                    <% } 
+            <h1 class="col s8 offset-s2 center-align card-panel lime accent-3" id="valider"> ${result} </h1>
+            <% } else { %>
+            <h1 class="col s8 offset-s2 center-align card-panel red lighten-1" id="erreur"> ${result} </h1>
+            <% } 
                 } %>
-            
+
             <h1>Inscription</h1>
             <form action="./InscriptionController" method="POST">
                 <div class="row">

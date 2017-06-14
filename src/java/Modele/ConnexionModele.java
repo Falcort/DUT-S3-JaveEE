@@ -25,23 +25,26 @@ import javax.sql.DataSource;
  */
 public class ConnexionModele
 {
+
     private String resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();
     private HttpServletResponse response;
-    
+
     public HttpServletResponse getResponse()
     {
         return response;
     }
-    
-    public String getResultat() {
+
+    public String getResultat()
+    {
         return resultat;
     }
 
-    public Map<String, String> getErreurs() {
+    public Map<String, String> getErreurs()
+    {
         return erreurs;
     }
-    
+
     public Compte connecterClient(HttpServletRequest request, HttpServletResponse response) throws Exception
     {
         String email = request.getParameter("email");
@@ -49,34 +52,39 @@ public class ConnexionModele
         String check = request.getParameter("check");
         this.response = response;
         System.out.println("Check = " + check);
-        
-        try {
+
+        try
+        {
             validationEmail(email);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("email", e.getMessage());
         }
-        
+
         try
         {
             validatePassword(password);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("password", e.getMessage());
         }
-        
-        int verifyAccount =verifyAccount(email, password);
-        if(verifyAccount == -1)
+
+        int verifyAccount = verifyAccount(email, password);
+        if (verifyAccount == -1)
         {
             resultat = "Compte introuvable";
         }
         else
         {
             Cookie isLogged = new Cookie("isLogged", "true");
-            Cookie id = new Cookie("id", verifyAccount+"");
-            if(check == "on")
+            Cookie id = new Cookie("id", verifyAccount + "");
+            if (check == "on")
             {
                 System.out.println("Check is on");
-                isLogged.setMaxAge(60*60*24*7);
-                id.setMaxAge(60*60*24*7); 
+                isLogged.setMaxAge(60 * 60 * 24 * 7);
+                id.setMaxAge(60 * 60 * 24 * 7);
                 this.response.addCookie(isLogged);
                 this.response.addCookie(id);
                 resultat = "GG";
@@ -84,8 +92,8 @@ public class ConnexionModele
             else
             {
                 System.out.println("Check is off");
-                isLogged.setMaxAge(60*60);
-                id.setMaxAge(60*60);
+                isLogged.setMaxAge(60 * 60);
+                id.setMaxAge(60 * 60);
                 this.response.addCookie(isLogged);
                 this.response.addCookie(id);
                 resultat = "GG";
@@ -94,44 +102,51 @@ public class ConnexionModele
         Compte client = new Compte();
         return client;
     }
-    
-    private void validationEmail(String email) throws Exception {
-        if (email != "") {
-            if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
+
+    private void validationEmail(String email) throws Exception
+    {
+        if (email != "")
+        {
+            if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)"))
+            {
                 throw new Exception("Merci de saisir une adresse mail valide.");
             }
-        } else {
+        }
+        else
+        {
             throw new Exception("Merci de saisir une adresse mail.");
         }
     }
-    
-    private void validatePassword(String password) throws Exception {
-        if(password != "")
+
+    private void validatePassword(String password) throws Exception
+    {
+        if (password != "")
         {
-            if(password.length() < 3)
+            if (password.length() < 3)
             {
                 throw new Exception("Les mots de passe doivent contenir au moins 3 caractères.");
             }
         }
-        if(password == "")
+        if (password == "")
         {
             throw new Exception("Merci de saisir votre mot de passe.");
         }
-        
+
     }
-    
-    private void setErreur(String champ, String message) {
+
+    private void setErreur(String champ, String message)
+    {
         erreurs.put(champ, message);
     }
-    
+
     private int verifyAccount(String email, String password) throws Exception
     {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection();   
+        Connection connexion = cnx.getConnection();
         int count = 0;
         int id;
         ResultSet rSet = null;
-        
+
         try
         {
             String query = "SELECT id FROM Utilisateurs WHERE email = ? AND mdp = ?";
@@ -144,7 +159,7 @@ public class ConnexionModele
         {
             Logger.getLogger(InscriptionModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         id = -1;
         while (rSet.next())
         {
@@ -155,8 +170,7 @@ public class ConnexionModele
         {
             return -1;
         }
-        
-        
+
         return id;
     }
 }

@@ -28,15 +28,18 @@ public class InscriptionModele
     private String resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();
 
-    public String getResultat() {
+    public String getResultat()
+    {
         return resultat;
     }
 
-    public Map<String, String> getErreurs() {
+    public Map<String, String> getErreurs()
+    {
         return erreurs;
     }
 
-    public Compte inscrireClient(HttpServletRequest request) throws Exception {
+    public Compte inscrireClient(HttpServletRequest request) throws Exception
+    {
         String email = request.getParameter("email");
         System.out.println(email);
         String password = request.getParameter("password");
@@ -54,53 +57,73 @@ public class InscriptionModele
 
         Compte client = new Compte();
 
-        try {
+        try
+        {
             validationEmail(email);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("email", e.getMessage());
         }
         client.setEmail(email);
 
-        try {
+        try
+        {
             validationPseudo(pseudo);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("pseudo", e.getMessage());
         }
         client.setPseudo(pseudo);
 
-        try {
+        try
+        {
             validationPrenom(prenom);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("prenom", e.getMessage());
         }
         client.setPrenom(prenom);
 
-        try {
+        try
+        {
             validationTelephone(telephone);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("telephone", e.getMessage());
         }
         client.setTelephone(telephone);
 
-        try {
+        try
+        {
             validationMotsDePasse(password, passwordRe);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("password", e.getMessage());
             setErreur("passwordRe", null);
         }
         client.setMotDePasse(password);
 
-        try {
+        try
+        {
             validationNom(nom);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             setErreur("nom", e.getMessage());
         }
         client.setNom(nom);
 
-        if (erreurs.isEmpty()) {
+        if (erreurs.isEmpty())
+        {
 
             Boolean userExist = verifUtilisateur(email, pseudo);
-            if (userExist == false) {
+            if (userExist == false)
+            {
                 DataSource cnx = BDD.getDataSource();
                 Connection connexion = cnx.getConnection();
                 try
@@ -124,19 +147,22 @@ public class InscriptionModele
                 resultat = "Inscription réussie !";
             }
 
-        } else {
+        }
+        else
+        {
             resultat = "Inscription ratée !";
         }
 
         return client;
     }
 
-    private Boolean verifUtilisateur(String email, String pseudo) throws Exception {
+    private Boolean verifUtilisateur(String email, String pseudo) throws Exception
+    {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection();   
+        Connection connexion = cnx.getConnection();
         int count = 0;
         ResultSet rSet = null;
-        
+
         try
         {
             String query = "SELECT email FROM Utilisateurs WHERE email = ? OR pseudo = ?";
@@ -149,8 +175,7 @@ public class InscriptionModele
         {
             Logger.getLogger(InscriptionModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         while (rSet.next())
         {
             count = count + 1;
@@ -163,53 +188,74 @@ public class InscriptionModele
         return true;
     }
 
-    private void validationEmail(String email) throws Exception {
-        if (email != null) {
-            if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
+    private void validationEmail(String email) throws Exception
+    {
+        if (email != null)
+        {
+            if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)"))
+            {
                 throw new Exception("Merci de saisir une adresse mail valide.");
             }
-        } else {
+        }
+        else
+        {
             throw new Exception("Merci de saisir une adresse mail.");
         }
     }
 
-    private void validationMotsDePasse(String motDePasse, String confirmation) throws Exception {
-        if (motDePasse != null && confirmation != null) {
-            if (!motDePasse.equals(confirmation)) {
+    private void validationMotsDePasse(String motDePasse, String confirmation) throws Exception
+    {
+        if (motDePasse != null && confirmation != null)
+        {
+            if (!motDePasse.equals(confirmation))
+            {
                 throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
-            } else if (motDePasse.length() < 3) {
+            }
+            else if (motDePasse.length() < 3)
+            {
                 throw new Exception("Les mots de passe doivent contenir au moins 3 caractères.");
             }
-        } else {
+        }
+        else
+        {
             throw new Exception("Merci de saisir et confirmer votre mot de passe.");
         }
     }
 
-    private void validationNom(String nom) throws Exception {
-        if (nom == null || nom.length() == 0) {
+    private void validationNom(String nom) throws Exception
+    {
+        if (nom == null || nom.length() == 0)
+        {
             throw new Exception("Le champ nom doit être non vide.");
         }
     }
 
-    private void setErreur(String champ, String message) {
+    private void setErreur(String champ, String message)
+    {
         erreurs.put(champ, message);
     }
 
-    private void validationPseudo(String pseudo) throws Exception {
-        if (pseudo == null || pseudo.length() < 3) {
+    private void validationPseudo(String pseudo) throws Exception
+    {
+        if (pseudo == null || pseudo.length() < 3)
+        {
             throw new Exception("Le pseudo doit contenir au moins 3 caractères.");
         }
     }
 
-    private void validationPrenom(String prenom) throws Exception {
-        if (prenom == null || prenom.length() == 0) {
+    private void validationPrenom(String prenom) throws Exception
+    {
+        if (prenom == null || prenom.length() == 0)
+        {
             throw new Exception("Le champ prénom doit être non vide.");
         }
     }
 
-    private void validationTelephone(String telephone) throws Exception {
-        if (telephone == null || telephone.length() == 0) {
+    private void validationTelephone(String telephone) throws Exception
+    {
+        if (telephone == null || telephone.length() == 0)
+        {
             throw new Exception("Le champ téléphone doit être non vide.");
         }
-    }    
+    }
 }

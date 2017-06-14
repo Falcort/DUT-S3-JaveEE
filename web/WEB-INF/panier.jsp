@@ -1,7 +1,7 @@
 <jsp:include page="template/header.jsp" />
 
 <%
-    if(request.getAttribute("Panier") == null)
+    if (request.getAttribute("Panier") == null)
     {
 %>
 <div id="card-alert" class="card red">
@@ -10,9 +10,9 @@
     </div>
 </div>
 <%
-    }
-    else
-    {   
+}
+else
+{
 %>
 <div class="row" style="margin-top: 25px">
     <div class="col s12">

@@ -114,34 +114,33 @@
                 %>
             </div>
         </nav>
-                    <!-- Element Showed -->
-  <a id="menu" class="waves-effect waves-light btn btn-floating btn-large pulse" ><i class="material-icons">menu</i></a>
+        <!-- Element Showed -->
+        <a id="menu" class="waves-effect waves-light btn btn-floating btn-large pulse" ><i class="material-icons">menu</i></a>
 
-  <!-- Tap Target Structure -->
-  <div class="tap-target" data-activates="menu" style="overflow: hidden">
-    <div class="tap-target-content" style="overflow: hidden">
-      <p>Adoptez !</p>
-      <p>04 42 42 42 42</p>
-    </div>
-  </div>
+        <!-- Tap Target Structure -->
+        <div class="tap-target" data-activates="menu" style="overflow: hidden">
+            <div class="tap-target-content" style="overflow: hidden">
+                <p>Adoptez !</p>
+                <p>04 42 42 42 42</p>
+            </div>
+        </div>
         <script>
             $(document).ready(function () {
                 $(".button-collapse").sideNav();
                 $(".dropdown-button").dropdown();
-                
+
                 i = 0;
-                $('#menu').on('click', function(e) {
-                    if(i%2 == 0)
+                $('#menu').on('click', function (e) {
+                    if (i % 2 == 0)
                     {
-                       $('.tap-target').tapTarget('open'); 
-                    }
-                    else
+                        $('.tap-target').tapTarget('open');
+                    } else
                     {
                         $('.tap-target').tapTarget('close');
                     }
                 });
             });
         </script>
- 
+
         <main>
             <div class="container">

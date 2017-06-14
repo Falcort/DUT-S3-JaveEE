@@ -1,4 +1,4 @@
- body
+body
 {
     background-color: #fcfcfc;
     overflow-x: hidden !important;
@@ -87,5 +87,5 @@ main
 
 .card-action-buttons li:last-child
 {
-   margin-left: 5px;
+    margin-left: 5px;
 }

@@ -17,155 +17,161 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+public class ArticleModele
+{
 
-public class ArticleModele {
-    
     private List<Article> articles = new ArrayList<>();
-    
-    public List<Article> getArticleList() {
+
+    public List<Article> getArticleList()
+    {
         return articles;
     }
-            
+
     public void articleChat() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection(); 
-        
+        Connection connexion = cnx.getConnection();
+
         ResultSet res = null;
-        try 
+        try
         {
             String query = "SELECT * FROM Cat";
             PreparedStatement pstmt = connexion.prepareStatement(query);
             res = pstmt.executeQuery();
-        } 
-        catch (SQLException ex) 
+        }
+        catch (SQLException ex)
         {
             Logger.getLogger(ArticleModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         System.out.println("RST CHAT" + res);
-        while (res.next()) {
-                int idChat = res.getInt("idCat");
-                String photoChat = res.getString("photoCat");
-                String raceChat = res.getString("raceCat");
-                int prixChat = res.getInt("priceCat");
-                Article chat = new Article(idChat, raceChat, prixChat, photoChat);
-                articles.add(chat);
-                 System.out.println("RST CHAT + 1");
+        while (res.next())
+        {
+            int idChat = res.getInt("idCat");
+            String photoChat = res.getString("photoCat");
+            String raceChat = res.getString("raceCat");
+            int prixChat = res.getInt("priceCat");
+            Article chat = new Article(idChat, raceChat, prixChat, photoChat);
+            articles.add(chat);
+            System.out.println("RST CHAT + 1");
         }
-        res.close(); 
+        res.close();
     }
-    
+
     public void articleChien() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection(); 
-        
+        Connection connexion = cnx.getConnection();
+
         ResultSet res = null;
-        try 
+        try
         {
             String query = "SELECT * FROM Dog";
             PreparedStatement pstmt = connexion.prepareStatement(query);
             res = pstmt.executeQuery();
-        } 
-        catch (SQLException ex) 
+        }
+        catch (SQLException ex)
         {
             Logger.getLogger(ArticleModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        while (res.next()) {
-                int idChien = res.getInt("idDog");
-                String photoChien = res.getString("photoDog");
-                String raceChien = res.getString("raceDog");
-                int prixChien = res.getInt("priceDog");
-                Article chien = new Article(idChien, raceChien, prixChien, photoChien);
-                articles.add(chien);
+
+        while (res.next())
+        {
+            int idChien = res.getInt("idDog");
+            String photoChien = res.getString("photoDog");
+            String raceChien = res.getString("raceDog");
+            int prixChien = res.getInt("priceDog");
+            Article chien = new Article(idChien, raceChien, prixChien, photoChien);
+            articles.add(chien);
         }
-        res.close(); 
+        res.close();
     }
-    
+
     public void articlePoisson() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection(); 
-        
+        Connection connexion = cnx.getConnection();
+
         ResultSet res = null;
-        try 
+        try
         {
             String query = "SELECT * FROM Fish";
             PreparedStatement pstmt = connexion.prepareStatement(query);
             res = pstmt.executeQuery();
-        } 
-        catch (SQLException ex) 
+        }
+        catch (SQLException ex)
         {
             Logger.getLogger(ArticleModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        while (res.next()) {
-                int idPoisson = res.getInt("idFish");
-                String photoPoisson = res.getString("photoFish");
-                String racePoisson = res.getString("raceFish");
-                int prixPoisson = res.getInt("priceFish");
-                Article poisson = new Article(idPoisson, racePoisson, prixPoisson, photoPoisson);
-                articles.add(poisson);
+
+        while (res.next())
+        {
+            int idPoisson = res.getInt("idFish");
+            String photoPoisson = res.getString("photoFish");
+            String racePoisson = res.getString("raceFish");
+            int prixPoisson = res.getInt("priceFish");
+            Article poisson = new Article(idPoisson, racePoisson, prixPoisson, photoPoisson);
+            articles.add(poisson);
         }
-        res.close(); 
+        res.close();
     }
-    
-        public void articleOiseau() throws Exception
+
+    public void articleOiseau() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection(); 
-        
+        Connection connexion = cnx.getConnection();
+
         ResultSet res = null;
-        try 
+        try
         {
             String query = "SELECT * FROM Bird";
             PreparedStatement pstmt = connexion.prepareStatement(query);
             res = pstmt.executeQuery();
-        } 
-        catch (SQLException ex) 
+        }
+        catch (SQLException ex)
         {
             Logger.getLogger(ArticleModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        while (res.next()) {
-                int idOiseau = res.getInt("idBird");
-                String photoOiseau = res.getString("photoBird");
-                String raceOiseau = res.getString("raceBird");
-                int prixOiseau = res.getInt("priceBird");
-                Article oiseau = new Article(idOiseau, raceOiseau, prixOiseau, photoOiseau);
-                articles.add(oiseau);
+
+        while (res.next())
+        {
+            int idOiseau = res.getInt("idBird");
+            String photoOiseau = res.getString("photoBird");
+            String raceOiseau = res.getString("raceBird");
+            int prixOiseau = res.getInt("priceBird");
+            Article oiseau = new Article(idOiseau, raceOiseau, prixOiseau, photoOiseau);
+            articles.add(oiseau);
         }
-        res.close(); 
+        res.close();
     }
-        
+
     public void articleDivers() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
-        Connection connexion = cnx.getConnection(); 
-        
+        Connection connexion = cnx.getConnection();
+
         ResultSet res = null;
-        try 
+        try
         {
             String query = "SELECT * FROM Stuff";
             PreparedStatement pstmt = connexion.prepareStatement(query);
             res = pstmt.executeQuery();
-        } 
-        catch (SQLException ex) 
+        }
+        catch (SQLException ex)
         {
             Logger.getLogger(ArticleModele.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        while (res.next()) {
-                int idDivers = res.getInt("idStuff");
-                String photoDivers = res.getString("photoStuff");
-                String raceDivers = res.getString("raceStuff");
-                int prixDivers = res.getInt("priceStuff");
-                Article divers = new Article(idDivers, raceDivers, prixDivers, photoDivers);
-                articles.add(divers);
+
+        while (res.next())
+        {
+            int idDivers = res.getInt("idStuff");
+            String photoDivers = res.getString("photoStuff");
+            String raceDivers = res.getString("raceStuff");
+            int prixDivers = res.getInt("priceStuff");
+            Article divers = new Article(idDivers, raceDivers, prixDivers, photoDivers);
+            articles.add(divers);
         }
-        res.close(); 
+        res.close();
     }
-    
+
 }
