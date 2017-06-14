@@ -34,13 +34,23 @@
                 </li>
             </ul>
         </div>
-        <img class="responsive-img" src="images/affiche.png">
     </div>
 </section>
+
+<div id="modal1" class="modal">
+    <div class="modal-content center-align">
+      <img class="responsive-img" style="max-width: 70%" src="images/affiche.png">
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-light btn"><i class="material-icons left">clear</i><i class="material-icons right">clear</i>COMPRIS</a>
+    </div>
+  </div>
 
 <script>
     $(document).ready(function () {
         $('.slider').slider();
+        $('.modal').modal();
+        $('#modal1').modal('open');
     });
 
 </script>
