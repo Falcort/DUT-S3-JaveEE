@@ -79,7 +79,9 @@ public class adresseLivraisonController extends HttpServlet {
         
         AdresseLivraisonModele formu = new AdresseLivraisonModele();
 
+        Adresse adresse;
         try {
+            adresse = formu.adresseLivraison(request);
             request.setAttribute("formu", formu);
         } catch (Exception ex) {
             Logger.getLogger(adresseLivraisonController.class.getName()).log(Level.SEVERE, null, ex);
