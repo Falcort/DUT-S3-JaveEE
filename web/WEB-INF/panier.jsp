@@ -1,5 +1,19 @@
 <jsp:include page="template/header.jsp" />
 
+<%
+    if(request.getAttribute("Panier") == null)
+    {
+%>
+<div id="card-alert" class="card red">
+    <div class="card-content white-text center-align">
+        <p><i class="material-icons">report_problem</i> ERREUR : Votrez panier est vide</p>
+    </div>
+</div>
+<%
+    }
+    else
+    {   
+%>
 <div class="row" style="margin-top: 25px">
     <div class="col s12">
         <nav>
@@ -14,7 +28,6 @@
         </nav>
     </div>
 </div>
-
 <table class="striped">
     <thead>
         <tr>
@@ -56,18 +69,7 @@
         <a class="waves-effect waves-light btn"><i class="material-icons right">payment</i>Payer !</a>
     </div>
 </div>
-
-<hr>
-
-<div id="card-alert" class="card red">
-    <div class="card-content white-text center-align">
-        <p><i class="material-icons">report_problem</i> ERREUR : Votrez panier est vide</p>
-    </div>
-</div>
-<hr>
-<div id="card-alert" class="card green">
-    <div class="card-content white-text center-align">
-        <p><i class="material-icons">done</i> SUCCESS : Vous ete connectez</p>
-    </div>
-</div>
+<%
+    }
+%>
 <jsp:include page="template/footer.jsp" />

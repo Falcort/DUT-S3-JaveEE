@@ -1,16 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Class.Article"%>
 <jsp:include page="template/header.jsp" />
-<%
-    ArrayList<Article> list = (ArrayList<Article>) request.getAttribute("Chien");
-    for (Article article : list)
-    {
-        System.out.println(article.getIdArticle());
-        System.out.println(article.getNomArticle());
-        System.out.println(article.getPrixArticle());
-        System.out.println(article.getPhotoArticle());
-    }
-%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="row">
     <c:forEach items="${Oiseau}" var="article" >
