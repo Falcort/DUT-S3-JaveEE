@@ -1,7 +1,22 @@
 <jsp:include page="template/header.jsp" />
+<div class="row" style="margin-top: 25px">
+    <div class="col s12">
+        <nav>
+            <div class="nav-wrapper center-align">
+                <div class="col s12">
+                    <a href="./Panier" class="breadcrumb">Panier</a>
+                    <a href="#!" class="breadcrumb" id="address">Adresse de livraison</a>
+                    <a href="#!" class="breadcrumb">Payement</a>
+                    <a href="#!" class="breadcrumb">Confirmation</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
 <section id="adresseLivraison" class="col s12">
     <div class="container card-panel" style="padding: 15px;">
-        <div class="col s6 center">
+        <div class="col s10 center">
             <h1>Adresse de livraison</h1>
             <form action="./adresseLivraisonController" method="POST">
                 <div class="row">
