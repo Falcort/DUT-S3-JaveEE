@@ -120,9 +120,8 @@
   <!-- Tap Target Structure -->
   <div class="tap-target" data-activates="menu" style="overflow: hidden">
     <div class="tap-target-content" style="overflow: hidden">
-      <h4>ANIMALUS</h4>
-      <h5>Lance sont service d'adoption !</h5>
-      <p>Adoptez un animal en nous contactant au :</p><p>04 42 42 42 42</p>
+      <p>Adoptez !</p>
+      <p>04 42 42 42 42</p>
     </div>
   </div>
         <script>
