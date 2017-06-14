@@ -56,7 +56,7 @@ public class ArticleModele {
         res.close(); 
     }
     
-    public void articleChien(List<Article> articles) throws Exception
+    public void articleChien() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
         Connection connexion = cnx.getConnection(); 
@@ -84,7 +84,7 @@ public class ArticleModele {
         res.close(); 
     }
     
-    public void articlePoisson(List<Article> articles) throws Exception
+    public void articlePoisson() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
         Connection connexion = cnx.getConnection(); 
@@ -112,7 +112,7 @@ public class ArticleModele {
         res.close(); 
     }
     
-        public void articleOiseau(List<Article> articles) throws Exception
+        public void articleOiseau() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
         Connection connexion = cnx.getConnection(); 
@@ -140,7 +140,7 @@ public class ArticleModele {
         res.close(); 
     }
         
-    public void articleDivers(List<Article> articles) throws Exception
+    public void articleDivers() throws Exception
     {
         DataSource cnx = BDD.getDataSource();
         Connection connexion = cnx.getConnection(); 

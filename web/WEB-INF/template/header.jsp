@@ -49,11 +49,11 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
                 <ul class="left hide-on-med-and-down">
-                    <li><a href="Chiens">Chiens</a></li>
+                    <li><a href="./Chien">Chiens</a></li>
                     <li><a href="./Chat">Chats</a></li>
-                    <li><a href="Oiseaux">Oiseaux</a></li>
-                    <li><a href="Poissons">Poissons</a></li>
-                    <li><a href="Divers">Divers</a></li>
+                    <li><a href="./Oiseau">Oiseaux</a></li>
+                    <li><a href="./Poisson">Poissons</a></li>
+                    <li><a href="./Divers">Divers</a></li>
                 </ul>
                 <%
                     if (!connected)

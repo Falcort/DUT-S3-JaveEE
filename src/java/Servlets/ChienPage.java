@@ -7,15 +7,19 @@ package Servlets;
 
 import Modele.ArticleModele;
 import java.io.IOException;
-import javax.servlet.ServletException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ChatPage extends HttpServlet {
+/**
+ *
+ * @author angel
+ */
+public class ChienPage extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,10 +38,10 @@ public class ChatPage extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Chat</title>");            
+            out.println("<title>Servlet ChienPage</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Chat at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ChienPage at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -53,14 +57,14 @@ public class ChatPage extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         try
         {
-            ArticleModele catProd = new ArticleModele();
-            catProd.articleChat();
-            request.setAttribute("Chat", catProd.getArticleList());
-            this.getServletContext().getRequestDispatcher("/WEB-INF/chat.jsp").forward(request, response);
+            ArticleModele dogProd = new ArticleModele();
+            dogProd.articleChien();
+            request.setAttribute("Chien", dogProd.getArticleList());
+            this.getServletContext().getRequestDispatcher("/WEB-INF/chien.jsp").forward(request, response);
         }
         catch (Exception ex)
         {
@@ -79,7 +83,7 @@ public class ChatPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

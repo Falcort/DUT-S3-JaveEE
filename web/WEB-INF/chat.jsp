@@ -22,7 +22,7 @@
                     <img src="images/<c:out value="${article['photoArticle']}"/>" alt="">
                     </a>
                 </div>
-                <ul class=""card-action-buttons">
+                <ul class="card-action-buttons">
                     <li>
                         <a class="btn-floating waves-effect waves-light light-blue">
                             <i class="material-icons">

@@ -33,6 +33,22 @@
         <servlet-name>ChatPage</servlet-name>
         <servlet-class>Servlets.ChatPage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChienPage</servlet-name>
+        <servlet-class>Servlets.ChienPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PoissonPage</servlet-name>
+        <servlet-class>Servlets.PoissonPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OiseauPage</servlet-name>
+        <servlet-class>Servlets.OiseauPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DiversPage</servlet-name>
+        <servlet-class>Servlets.DiversPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -67,6 +83,22 @@
     <servlet-mapping>
         <servlet-name>PanierPage</servlet-name>
         <url-pattern>/Panier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChienPage</servlet-name>
+        <url-pattern>/Chien</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PoissonPage</servlet-name>
+        <url-pattern>/Poisson</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OiseauPage</servlet-name>
+        <url-pattern>/Oiseau</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DiversPage</servlet-name>
+        <url-pattern>/Divers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
