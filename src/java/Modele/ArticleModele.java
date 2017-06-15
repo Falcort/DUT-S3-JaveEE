@@ -170,10 +170,10 @@ public class ArticleModele
         {
             int idDivers = res.getInt("idStuff");
             String photoDivers = res.getString("photoStuff");
-            String raceDivers = res.getString("raceStuff");
+            String nameDivers = res.getString("nameStuff");
             int prixDivers = res.getInt("priceStuff");
             String descriptionDivers = res.getString("descriptionStuff");
-            Article divers = new Article(idDivers, raceDivers, prixDivers, photoDivers, descriptionDivers);
+            Article divers = new Article(idDivers, nameDivers, prixDivers, photoDivers, descriptionDivers);
             articles.add(divers);
         }
         res.close();
