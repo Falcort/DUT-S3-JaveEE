@@ -72,10 +72,10 @@
                     <li><a href="./Inscription"><i class="material-icons left">perm_identity</i>   Inscription</a></li>
                 </ul> 
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="Chiens">Chiens</a></li>
-                    <li><a href="Chats">Chats</a></li>
-                    <li><a href="Oiseaux">Oiseaux</a></li>
-                    <li><a href="Poissons">Poissons</a></li>
+                    <li><a href="Chien">Chiens</a></li>
+                    <li><a href="Chat">Chats</a></li>
+                    <li><a href="Oiseau">Oiseaux</a></li>
+                    <li><a href="Poisson">Poissons</a></li>
                     <li><a href="Divers">Divers</a></li>
                     <li><a href="Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
                     <li><a href="./Connexion"> <i class="material-icons left">verified_user</i>Connexion</a></li>
@@ -96,10 +96,10 @@
                     </li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="Chiens">Chiens</a></li>
+                    <li><a href="Chien">Chiens</a></li>
                     <li><a href="./Chat">Chats</a></li>
-                    <li><a href="Oiseaux">Oiseaux</a></li>
-                    <li><a href="Poissons">Poissons</a></li>
+                    <li><a href="Oiseau">Oiseaux</a></li>
+                    <li><a href="Poisson">Poissons</a></li>
                     <li><a href="Divers">Divers</a></li>
                     <li><a href="Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
                     <li><a href="Panier"><i class="material-icons left">account_box</i>  Mon compte</a></li>
