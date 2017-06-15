@@ -16,13 +16,15 @@ public class Article
     private String nomArticle;
     private float prixArticle;
     private String photoArticle;
+    private String descriptionArticle;
 
-    public Article(int idArticle, String nomArticle, float prixArticle, String photoArticle)
+    public Article(int idArticle, String nomArticle, float prixArticle, String photoArticle, String descriptionArticle)
     {
         this.idArticle = idArticle;
         this.nomArticle = nomArticle;
         this.prixArticle = prixArticle;
         this.photoArticle = photoArticle;
+        this.descriptionArticle = descriptionArticle;
     }
 
     public int getIdArticle()
@@ -45,6 +47,10 @@ public class Article
         return photoArticle;
     }
 
+    public String getDescriptionArticle() {
+        return descriptionArticle;
+    }
+
     public void setIdArticle(int idArticle)
     {
         this.idArticle = idArticle;
@@ -64,4 +70,9 @@ public class Article
     {
         this.photoArticle = photoArticle;
     }
+
+    public void setDescriptionArticle(String descriptionArticle) {
+        this.descriptionArticle = descriptionArticle;
+    }
+    
 }

@@ -74,7 +74,7 @@ public class PanierPage extends HttpServlet
             if (cookies[i].getName().contains("Panier"))
             {
                 String parts[] = cookies[i].getValue().split("-");
-                Article panier = new Article(Integer.parseInt(parts[1]), parts[2], Float.parseFloat(parts[3]), "...");
+                Article panier = new Article(Integer.parseInt(parts[1]), parts[2], Float.parseFloat(parts[3]), "...", "");
                 articles.add(panier);
                 prixTotal = prixTotal + Float.parseFloat(parts[3]);
                 count ++;

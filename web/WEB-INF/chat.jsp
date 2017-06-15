@@ -14,7 +14,7 @@
                 </div>
                 <ul class="card-action-buttons">
                     <li>
-                        <a class="tooltipped btn-floating waves-effect waves-light light-blue" data-position="top" data-delay="50" data-tooltip="<c:out value="${article['nomArticle']}"/>">
+                        <a class="tooltipped btn-floating waves-effect waves-light light-blue" data-position="top" data-delay="50" data-tooltip="<c:out value="${article['descriptionArticle']}"/>">
                             <i class="material-icons">
                                 info_outline
                             </i>

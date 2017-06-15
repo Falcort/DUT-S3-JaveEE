@@ -51,7 +51,8 @@ public class ArticleModele
             String photoChat = res.getString("photoCat");
             String raceChat = res.getString("raceCat");
             int prixChat = res.getInt("priceCat");
-            Article chat = new Article(idChat, raceChat, prixChat, photoChat);
+            String descriptionChat = res.getString("descriptionCat");
+            Article chat = new Article(idChat, raceChat, prixChat, photoChat, descriptionChat);
             articles.add(chat);
             System.out.println("RST CHAT + 1");
         }
@@ -81,7 +82,8 @@ public class ArticleModele
             String photoChien = res.getString("photoDog");
             String raceChien = res.getString("raceDog");
             int prixChien = res.getInt("priceDog");
-            Article chien = new Article(idChien, raceChien, prixChien, photoChien);
+            String descriptionChien = res.getString("descriptionDog");
+            Article chien = new Article(idChien, raceChien, prixChien, photoChien, descriptionChien);
             articles.add(chien);
         }
         res.close();
@@ -110,7 +112,8 @@ public class ArticleModele
             String photoPoisson = res.getString("photoFish");
             String racePoisson = res.getString("raceFish");
             int prixPoisson = res.getInt("priceFish");
-            Article poisson = new Article(idPoisson, racePoisson, prixPoisson, photoPoisson);
+            String descriptionPoisson = res.getString("descriptionFish");
+            Article poisson = new Article(idPoisson, racePoisson, prixPoisson, photoPoisson, descriptionPoisson);
             articles.add(poisson);
         }
         res.close();
@@ -139,7 +142,8 @@ public class ArticleModele
             String photoOiseau = res.getString("photoBird");
             String raceOiseau = res.getString("raceBird");
             int prixOiseau = res.getInt("priceBird");
-            Article oiseau = new Article(idOiseau, raceOiseau, prixOiseau, photoOiseau);
+            String descriptionOiseau = res.getString("descriptionBird");
+            Article oiseau = new Article(idOiseau, raceOiseau, prixOiseau, photoOiseau, descriptionOiseau);
             articles.add(oiseau);
         }
         res.close();
@@ -168,7 +172,8 @@ public class ArticleModele
             String photoDivers = res.getString("photoStuff");
             String raceDivers = res.getString("raceStuff");
             int prixDivers = res.getInt("priceStuff");
-            Article divers = new Article(idDivers, raceDivers, prixDivers, photoDivers);
+            String descriptionDivers = res.getString("descriptionStuff");
+            Article divers = new Article(idDivers, raceDivers, prixDivers, photoDivers, descriptionDivers);
             articles.add(divers);
         }
         res.close();
