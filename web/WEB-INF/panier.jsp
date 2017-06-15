@@ -67,7 +67,7 @@ else
         <a class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>Sauvegarder le panier</a>
     </div>
     <div class="col s6">
-        <a class="waves-effect waves-light btn"><i class="material-icons right">payment</i>Payer</a>
+        <a href="./adresseLivraison" class="waves-effect waves-light btn"><i class="material-icons right">payment</i>Payer</a>
     </div>
 </div>
 <%

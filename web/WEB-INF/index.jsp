@@ -6,7 +6,7 @@
             <ul class="slides">
                 <li>
                     <img src="images/chiot.jpg"> <!-- random image -->
-                    <div class="caption center-align">
+                    <div class="caption left-align">
                         <h3>Husky</h3>
                         <h5 class="light grey-text text-lighten-3">Il aime les câlins</h5>
                     </div>
