@@ -1,6 +1,10 @@
 <jsp:include page="template/header.jsp" />
 <section id="home">
     <div class="container center" style="padding: 15px;">
+        <% if(request.getAttribute("Deconnexion") != null) 
+        { %>
+            <h1 class="col s8 offset-s2 center-align card-panel lime accent-3" id="valider">${result}</h1>
+        } %>
         <h1>Animalus</h1>
         <div class="slider">
             <ul class="slides">
