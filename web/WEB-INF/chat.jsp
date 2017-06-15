@@ -7,7 +7,7 @@
         <div class="col s6">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/></a>
+                    <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/>&euro</a>
                     <a>
                         <img src="images/<c:out value="${article['photoArticle']}"/>" alt="">
                     </a>
@@ -37,9 +37,7 @@
                         <input type="hidden" name="modelNo" value="<c:out value="${article['nomArticle']}"/>">
                         <p><c:out value="${article['nomArticle']}"/></p>
                         <input type="hidden" size="2" value="1" name="quantity">
-
                         <input type="hidden" name="price" value="<c:out value="${article['prixArticle']}"/>">
-                        <p>Prix :<c:out value="${article['prixArticle']}"/> euros</p> 
                     </div>
                 </div>
             </div>
