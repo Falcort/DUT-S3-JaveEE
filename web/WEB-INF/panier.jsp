@@ -1,5 +1,5 @@
 <jsp:include page="template/header.jsp" />
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     if (request.getAttribute("Panier") == null)
     {
@@ -31,8 +31,9 @@ else
 <table class="striped">
     <thead>
         <tr>
+
             <th>Nom de l'article</th>
-            <th>Quantity</th>
+            <th>Action</th>
             <th>Prix</th>
         </tr>
     </thead>
@@ -40,25 +41,25 @@ else
         <tr>
             <td></td>
             <td><b>Total :</b></td>
-            <td><b>$180</b></td>
+            <td><b>${Total}</b></td>
         </tr>
     </tfoot>
     <tbody>
-        <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-        </tr>
-        <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-        </tr>
-        <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-        </tr>
+        <c:forEach items="${Panier}" var="article" >
+            <tr>
+                <td><c:out value="${article['nomArticle']}"/></td>
+                <td>
+                    <form action="./SupprimerArticlePanier" method="POST">
+                        <input hidden type="text" name="id" value="<c:out value="${article['idArticle']}"/>">
+                        <input hidden type="text" name="nom" value="<c:out value="${article['nomArticle']}"/>">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Supprimer
+                            <i class="material-icons right">clear</i>
+                        </button>
+                    </form>
+                </td>
+                <td><c:out value="${article['prixArticle']}"/></td>
+            </tr>
+        </c:forEach>
     </tbody>
 </table>
 <div class="row center-align" style="margin-top: 25px">

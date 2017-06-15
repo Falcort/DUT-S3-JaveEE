@@ -7,37 +7,36 @@
         <div class="col s6">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/>&euro</a>
+                    <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/>&euro;</a>
                     <a>
                         <img src="images/<c:out value="${article['photoArticle']}"/>" alt="">
                     </a>
                 </div>
                 <ul class="card-action-buttons">
-                    <form>
-                        <li>
-                            <a class="btn-floating waves-effect waves-light light-blue">
-                                <i class="material-icons">
-                                    info_outline
-                                </i>
-                            </a>
-                        </li>
-                    </form>
-                    <form>
-                        <li>
-                            <a class="btn-floating waves-effect waves-light red">
+                    <li>
+                        <a class="tooltipped btn-floating waves-effect waves-light light-blue" data-position="top" data-delay="50" data-tooltip="<c:out value="${article['nomArticle']}"/>">
+                            <i class="material-icons">
+                                info_outline
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <form action="./AjouterArticlePanier" method="POST">
+                            <input hidden type="text" name="id" value="<c:out value="${article['idArticle']}"/>">
+                            <input hidden type="text" name="nom" value="<c:out value="${article['nomArticle']}"/>">
+                            <input hidden type="text" name="prix" value="<c:out value="${article['prixArticle']}"/>">
+                            <input hidden type="text" name="type" value="chat">
+                            <button class="btn-floating btn waves-effect waves-light red" type="submit" name="action">
                                 <i class="material-icons">
                                     add_shopping_cart
                                 </i>
-                            </a>
-                        </li>
-                    </form>
+                            </button>
+                        </form>
+                    </li>
                 </ul>
                 <div class="card-content">
                     <div>
-                        <input type="hidden" name="modelNo" value="<c:out value="${article['nomArticle']}"/>">
-                        <p><c:out value="${article['nomArticle']}"/></p>
-                        <input type="hidden" size="2" value="1" name="quantity">
-                        <input type="hidden" name="price" value="<c:out value="${article['prixArticle']}"/>">
+                        <h3><c:out value="${article['nomArticle']}"/></h3>
                     </div>
                 </div>
             </div>

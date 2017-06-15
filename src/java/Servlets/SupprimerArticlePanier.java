@@ -5,11 +5,8 @@
  */
 package Servlets;
 
-import Class.Article;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thinkpad-Falcort
+ * @author Thibault
  */
-public class PanierPage extends HttpServlet
+public class SupprimerArticlePanier extends HttpServlet
 {
 
     /**
@@ -42,10 +39,10 @@ public class PanierPage extends HttpServlet
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PanierPage</title>");
+            out.println("<title>Servlet SupprimerArticlePanier</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PanierPage at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SupprimerArticlePanier at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,26 +58,10 @@ public class PanierPage extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
     {
-        float prixTotal = 0;
-        List<Article> articles = new ArrayList<>();
-        
-        Cookie[] cookies = request.getCookies();
-        
-        for (int i = 0; i < cookies.length; i++)
-        {
-            if (cookies[i].getName().contains("Panier"))
-            {
-                String parts[] = cookies[i].getValue().split("-");
-                Article panier = new Article(Integer.parseInt(parts[1]), parts[2], Float.parseFloat(parts[3]), "...");
-                articles.add(panier);
-                prixTotal = prixTotal + Float.parseFloat(parts[3]);
-            }
-        }
-        request.setAttribute("Panier", articles);
-        request.setAttribute("Total", prixTotal);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -92,10 +73,20 @@ public class PanierPage extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        processRequest(request, response);
+        Cookie[] cookies = request.getCookies();
+        String contenuCookie = request.getParameter("id") + "-" + request.getParameter("nom");
+        
+        for (int i = 0; i < cookies.length; i++)
+        {
+            if (cookies[i].getValue().contains(contenuCookie))
+            {
+                cookies[i].setMaxAge(0);
+                response.addCookie(cookies[i]);
+            }
+        }
+        response.sendRedirect(request.getContextPath() + "/Panier");
     }
 
     /**

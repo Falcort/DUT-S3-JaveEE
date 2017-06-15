@@ -57,6 +57,14 @@
         <servlet-name>adresseLivraisonController</servlet-name>
         <servlet-class>Servlets.adresseLivraisonController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AjouterArticlePanier</servlet-name>
+        <servlet-class>Servlets.AjouterArticlePanier</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupprimerArticlePanier</servlet-name>
+        <servlet-class>Servlets.SupprimerArticlePanier</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -115,6 +123,14 @@
     <servlet-mapping>
         <servlet-name>adresseLivraisonController</servlet-name>
         <url-pattern>/adresseLivraisonController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjouterArticlePanier</servlet-name>
+        <url-pattern>/AjouterArticlePanier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupprimerArticlePanier</servlet-name>
+        <url-pattern>/SupprimerArticlePanier</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
