@@ -22,6 +22,20 @@ public class Compte implements Serializable
     private String motDePasse;
     private String type;
     private String telephone;
+    
+    public Compte()
+    {
+        
+    }
+    
+    public Compte(String pseudo, String nom, String prenom, String email, String telephone)
+    {
+        this.pseudo = pseudo;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+    }
 
     public String getTelephone()
     {

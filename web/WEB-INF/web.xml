@@ -65,6 +65,10 @@
         <servlet-name>SupprimerArticlePanier</servlet-name>
         <servlet-class>Servlets.SupprimerArticlePanier</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ComptePage</servlet-name>
+        <servlet-class>Servlets.ComptePage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -131,6 +135,10 @@
     <servlet-mapping>
         <servlet-name>SupprimerArticlePanier</servlet-name>
         <url-pattern>/SupprimerArticlePanier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ComptePage</servlet-name>
+        <url-pattern>/Compte</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

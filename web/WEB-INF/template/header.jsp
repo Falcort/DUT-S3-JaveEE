@@ -59,7 +59,7 @@
                     if (!connected)
                     { %>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
+                    <li><a href="./Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
                     <li>
                         <a class="dropdown-button" href="#!" data-activates="dropdown1">
                             <i class="material-icons left">account_circle</i>   Compte
@@ -72,12 +72,12 @@
                     <li><a href="./Inscription"><i class="material-icons left">perm_identity</i>   Inscription</a></li>
                 </ul> 
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="Chien">Chiens</a></li>
-                    <li><a href="Chat">Chats</a></li>
-                    <li><a href="Oiseau">Oiseaux</a></li>
-                    <li><a href="Poisson">Poissons</a></li>
-                    <li><a href="Divers">Divers</a></li>
-                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
+                    <li><a href="./Chien">Chiens</a></li>
+                    <li><a href="./Chat">Chats</a></li>
+                    <li><a href="./Oiseau">Oiseaux</a></li>
+                    <li><a href="./Poisson">Poissons</a></li>
+                    <li><a href="./Divers">Divers</a></li>
+                    <li><a href="./Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
                     <li><a href="./Connexion"> <i class="material-icons left">verified_user</i>Connexion</a></li>
                     <li><a href="./Inscription"><i class="material-icons left">perm_identity</i> Inscription</a></li>
                 </ul>
@@ -88,7 +88,7 @@
                 %>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="Panier"><i class="material-icons left">shopping_cart</i>  Panier</a></li>
-                    <li><a href="Panier"><i class="material-icons left">account_box</i>  Mon compte</a></li>
+                    <li><a href="./Compte"><i class="material-icons left">account_box</i>  Mon compte</a></li>
                     <li>
                         <a class="waves-effect waves-light btn" href="./Deconnexion">
                             <i class="large material-icons right">power_settings_new</i>   Deconnexion
@@ -98,11 +98,11 @@
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="Chien">Chiens</a></li>
                     <li><a href="./Chat">Chats</a></li>
-                    <li><a href="Oiseau">Oiseaux</a></li>
-                    <li><a href="Poisson">Poissons</a></li>
-                    <li><a href="Divers">Divers</a></li>
-                    <li><a href="Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
-                    <li><a href="Panier"><i class="material-icons left">account_box</i>  Mon compte</a></li>
+                    <li><a href="./Oiseau">Oiseaux</a></li>
+                    <li><a href="./Poisson">Poissons</a></li>
+                    <li><a href="./Divers">Divers</a></li>
+                    <li><a href="./Panier"><i class="material-icons left">shopping_cart</i> Panier</a></li>
+                    <li><a href="./Compte"><i class="material-icons left">account_box</i>  Mon compte</a></li>
                     <li>
                         <a class="waves-effect waves-light btn" href="./Deconnexion">
                             <i class="large material-icons right">power_settings_new</i>   Deconnexion
