@@ -25,7 +25,7 @@
                             <input hidden type="text" name="id" value="<c:out value="${article['idArticle']}"/>">
                             <input hidden type="text" name="nom" value="<c:out value="${article['nomArticle']}"/>">
                             <input hidden type="text" name="prix" value="<c:out value="${article['prixArticle']}"/>">
-                            <input hidden type="text" name="type" value="chat">
+                            <input hidden type="text" name="type" value="poisson">
                             <button class="btn-floating btn waves-effect waves-light red" type="submit" name="action">
                                 <i class="material-icons">
                                     add_shopping_cart
