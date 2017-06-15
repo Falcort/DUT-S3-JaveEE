@@ -68,6 +68,7 @@ public class PanierPage extends HttpServlet
         
         Cookie[] cookies = request.getCookies();
         
+        int count = 0;
         for (int i = 0; i < cookies.length; i++)
         {
             if (cookies[i].getName().contains("Panier"))
@@ -76,10 +77,14 @@ public class PanierPage extends HttpServlet
                 Article panier = new Article(Integer.parseInt(parts[1]), parts[2], Float.parseFloat(parts[3]), "...");
                 articles.add(panier);
                 prixTotal = prixTotal + Float.parseFloat(parts[3]);
+                count ++;
             }
         }
-        request.setAttribute("Panier", articles);
-        request.setAttribute("Total", prixTotal);
+        if(count > 0)
+        {
+            request.setAttribute("Panier", articles);
+            request.setAttribute("Total", prixTotal);
+        }   
         this.getServletContext().getRequestDispatcher("/WEB-INF/panier.jsp").forward(request, response);
     }
 
