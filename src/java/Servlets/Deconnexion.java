@@ -68,11 +68,13 @@ public class Deconnexion extends HttpServlet
             if (cookies[i].getName().equals("id") || cookies[i].getName().equals("isLogged"))
             {
                 cookies[i].setMaxAge(0);
+                cookies[i].setValue("");
                 response.addCookie(cookies[i]);
             }
         }
-        response.sendRedirect(request.getContextPath() + "/");
-        //this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        request.setAttribute("Deconnexion", "Merci pour votre visite");
+        //response.sendRedirect(request.getContextPath() + "/");
+        this.getServletContext().getRequestDispatcher("/").forward(request, response);
     }
 
     /**

@@ -12,7 +12,10 @@
             Cookie cookieTmp = cookies[i];
             if (cookieTmp.getName().equals("id"))
             {
-                id = true;
+                if(cookieTmp.getValue() != "")
+                {
+                    id = true;
+                } 
             }
             if (cookieTmp.getName().equals("isLogged"))
             {
