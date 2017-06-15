@@ -102,7 +102,7 @@ public class AjouterArticlePanier extends HttpServlet
         
         if(!alreadyUseCookie.equals(""))
         {
-            System.out.println("Cookies identique " + alreadyUseCookie);
+            System.out.println("Cookies identiques " + alreadyUseCookie);
         }
         else
         {

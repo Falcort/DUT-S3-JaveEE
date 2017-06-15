@@ -6,7 +6,7 @@
                 <div class="col s12">
                     <a href="./Panier" class="breadcrumb">Panier</a>
                     <a href="#!" class="breadcrumb" id="address">Adresse de livraison</a>
-                    <a href="#!" class="breadcrumb">Payement</a>
+                    <a href="#!" class="breadcrumb">Paiement</a>
                     <a href="#!" class="breadcrumb">Confirmation</a>
                 </div>
             </div>

@@ -6,7 +6,7 @@
 %>
 <div id="card-alert" class="card red">
     <div class="card-content white-text center-align">
-        <p><i class="material-icons">report_problem</i> ERREUR : Votrez panier est vide</p>
+        <p><i class="material-icons">report_problem</i> ERREUR : Votre panier est vide</p>
     </div>
 </div>
 <%
@@ -21,7 +21,7 @@ else
                 <div class="col s12">
                     <a href="./Panier" class="breadcrumb" id="panier">Panier</a>
                     <a href="#!" class="breadcrumb">Adresse de livraison</a>
-                    <a href="#!" class="breadcrumb">Payement</a>
+                    <a href="#!" class="breadcrumb">Paiement</a>
                     <a href="#!" class="breadcrumb">Confirmation</a>
                 </div>
             </div>
@@ -67,7 +67,7 @@ else
         <a class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>Sauvegarder le panier</a>
     </div>
     <div class="col s6">
-        <a class="waves-effect waves-light btn"><i class="material-icons right">payment</i>Payer !</a>
+        <a class="waves-effect waves-light btn"><i class="material-icons right">payment</i>Payer</a>
     </div>
 </div>
 <%

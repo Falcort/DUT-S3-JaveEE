@@ -110,12 +110,12 @@ public class ConnexionPage extends HttpServlet
             Cookie cookieTmp = cookies[i];
             if (cookieTmp.getName().equals("id"))
             {
-                System.out.println("ID TROUVER");
+                System.out.println("ID TROUVE");
                 id = true;
             }
             if (cookieTmp.getName().equals("isLogged"))
             {
-                System.out.println("LOGG TROUVER");
+                System.out.println("LOGG TROUVE");
                 isLogged = true;
             }
         }
