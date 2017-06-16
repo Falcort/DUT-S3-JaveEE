@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="row">
     <c:forEach items="${Oiseau}" var="article" >
-        <div class="col s6">
+        <div class="col s3">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <a class="btn-floating btn-large btn-price waves-effect waves-light red"><c:out value="${article['prixArticle']}"/>&euro;</a>
