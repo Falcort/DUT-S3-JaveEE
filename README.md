@@ -1,5 +1,3 @@
-# Java EE
-
 # Site web réalisée par [SOUQUET Thibault](https://github.com/Falcort) et [MARTINEZ Jennifer](https://github.com/Weissyy)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
